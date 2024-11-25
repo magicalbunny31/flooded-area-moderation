@@ -37,7 +37,8 @@ export default async interaction => {
 
    // "defer" the interaction
    const message = await interaction.reply({
-      content: Discord.heading(`${interaction.client.allEmojis.loading} ${content.fetchingPlayerData}`, Discord.HeadingLevel.Three)
+      content: Discord.heading(`${interaction.client.allEmojis.loading} ${content.fetchingPlayerData}`, Discord.HeadingLevel.Three),
+      fetchReply: true
    });
 
 
