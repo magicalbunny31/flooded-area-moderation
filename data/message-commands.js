@@ -260,9 +260,6 @@ export class Help {
                      ]
                         .join(`\n`)
                   )
-                  .setFooter({
-                     text: `More information can be found in the "More text-based commands information" button below.`
-                  })
             ];
 
 
