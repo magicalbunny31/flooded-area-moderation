@@ -30,10 +30,6 @@ interface AnySelectMenuCommandData extends Omit<ApplicationCommandData, "data" |
    default: (interaction: Discord.AnySelectMenuInteraction) => Promise<void>;
 };
 
-interface UserCommandData extends ApplicationCommandData {
-   default: (interaction: Discord.UserContextMenuCommandInteraction) => Promise<void>;
-};
-
 
 interface Client extends Discord.Client {
    allEmojis: ReturnType<typeof emojis>;
@@ -45,7 +41,6 @@ interface Client extends Discord.Client {
       "chat-input":   Discord.Collection<string, ChatInputCommandData>;
       "modal-submit": Discord.Collection<string, ModalSubmitCommandData>;
       "select-menu":  Discord.Collection<string, AnySelectMenuCommandData>;
-      "user":         Discord.Collection<string, UserCommandData>;
    };
    moderations: ModerationsManager;
 };
@@ -75,10 +70,6 @@ export interface AnySelectMenuInteraction extends Discord.AnySelectMenuInteracti
 };
 
 export interface StringSelectMenuInteraction extends Discord.StringSelectMenuInteraction {
-   client: Client;
-};
-
-export interface UserContextMenuCommandInteraction extends Discord.UserContextMenuCommandInteraction {
    client: Client;
 };
 

@@ -130,7 +130,6 @@ for (const interaction of await fs.readdir(`./interactions`)) {
 const [ globalCommands, guildCommands ] = partition(
    [
       ...client.interactions[`chat-input`]
-         .concat(client.interactions.user)
          .values()
    ],
    command => !command.guilds
