@@ -1,0 +1,20 @@
+# 💻 vscode
+.vscode/
+*.code-workspace
+
+# 📜 .env
+DOTENV_KEY
+.env*
+!.env.project
+!.env.sample
+!.env.vault
+
+# 📜 logs
+logs/
+
+# 📄 scripts
+scripts/
+
+# 📦 dependencies
+node_modules/
+.flaskenv*
