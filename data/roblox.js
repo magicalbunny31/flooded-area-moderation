@@ -125,7 +125,7 @@ export const bloxlink = {
     */
    async robloxToDiscord(guildId, playerId) {
       // get cached data
-      const cacheId = `bloxlink:robloxToDiscord:${playerId}`;
+      const cacheId = `bloxlink:${guildId}:robloxToDiscord:${playerId}`;
       if (cache.has(cacheId))
          return cache.get(cacheId);
 
@@ -154,7 +154,7 @@ export const bloxlink = {
 
          // set cached data for other endpoint
          for (const userId of parsedData)
-            cache.set(`bloxlink:discordToRoblox:${userId}`, playerId);
+            cache.set(`bloxlink:${guildId}:discordToRoblox:${userId}`, playerId);
 
          // return data
          return parsedData;
@@ -178,7 +178,7 @@ export const bloxlink = {
     */
    async discordToRoblox(guildId, userId) {
       // get cached data
-      const cacheId = `bloxlink:discordToRoblox:${userId}`;
+      const cacheId = `bloxlink:${guildId}:discordToRoblox:${userId}`;
       if (cache.has(cacheId))
          return cache.get(cacheId);
 
@@ -206,7 +206,7 @@ export const bloxlink = {
          cache.set(cacheId, parsedData);
 
          // set cached data for other endpoint
-         cache.set(`bloxlink:robloxToDiscord:${parsedData}`, [ userId ]);
+         cache.set(`bloxlink:${guildId}:robloxToDiscord:${parsedData}`, [ userId ]);
 
          // return data
          return parsedData;
