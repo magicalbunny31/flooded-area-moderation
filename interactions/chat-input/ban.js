@@ -13,7 +13,7 @@ export const data = new Discord.SlashCommandBuilder()
    .addStringOption(
       new Discord.SlashCommandStringOption()
          .setName(`player`)
-         .setDescription(`Player to ban`)
+         .setDescription(`Player to permanently ban`)
          .setMinLength(3)
          .setMaxLength(20)
          .setAutocomplete(true)

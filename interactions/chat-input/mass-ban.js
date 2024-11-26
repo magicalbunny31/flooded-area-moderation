@@ -14,7 +14,7 @@ export const data = (() => {
       .addStringOption(
          new Discord.SlashCommandStringOption()
             .setName(`player`)
-            .setDescription(`Player to ban`)
+            .setDescription(`Player to permanently ban`)
             .setMinLength(3)
             .setMaxLength(20)
             .setAutocomplete(true)
@@ -23,7 +23,7 @@ export const data = (() => {
       .addStringOption(
          new Discord.SlashCommandStringOption()
             .setName(`player-2`)
-            .setDescription(`Player to ban`)
+            .setDescription(`Player to permanently ban`)
             .setMinLength(3)
             .setMaxLength(20)
             .setAutocomplete(true)
@@ -46,7 +46,7 @@ export const data = (() => {
       data.addStringOption(
          new Discord.SlashCommandStringOption()
             .setName(`player-${i + 3}`)
-            .setDescription(`Player to ban`)
+            .setDescription(`Player to permanently ban`)
             .setMinLength(3)
             .setMaxLength(20)
             .setAutocomplete(true)

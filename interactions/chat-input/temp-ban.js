@@ -22,7 +22,7 @@ export const data = new Discord.SlashCommandBuilder()
    .addIntegerOption(
       new Discord.SlashCommandIntegerOption()
          .setName(`duration`)
-         .setDescription(`duration for the ban, it can be in seconds (86400) or in number/durations (3d2h1m)`)
+         .setDescription(`Duration for this ban, it can be the time in seconds (86400) or as number/durations pairs (3d2h1m)`)
          .setMinValue(1)
          .setMaxValue(315_576_000_000)
          .setAutocomplete(true)

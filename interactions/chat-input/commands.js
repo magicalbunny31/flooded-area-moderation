@@ -8,7 +8,7 @@ export const guilds = commandGuilds;
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`commands`)
-   .setDescription(`View information on how to use the app's commands`)
+   .setDescription(`Get helpful information on how to use this app's commands`)
    .setDefaultMemberPermissions(Discord.PermissionFlagsBits.ManageGuild);
 
 

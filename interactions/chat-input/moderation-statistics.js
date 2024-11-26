@@ -8,7 +8,7 @@ export const guilds = commandGuilds;
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`moderation-statistics`)
-   .setDescription(`View your moderation statistics`)
+   .setDescription(`View statistics on the players you've moderated in Flooded Area`)
    .setDefaultMemberPermissions(Discord.PermissionFlagsBits.ManageGuild);
 
 

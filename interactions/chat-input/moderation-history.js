@@ -10,11 +10,11 @@ export const guilds = commandGuilds;
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`moderation-history`)
-   .setDescription(`View the moderation history of a player`)
+   .setDescription(`View a player's moderation history in Flooded Area`)
    .addStringOption(
       new Discord.SlashCommandStringOption()
          .setName(`player`)
-         .setDescription(`Player to view moderation history for`)
+         .setDescription(`Player's moderation history to view`)
          .setAutocomplete(true)
          .setRequired(true)
    )

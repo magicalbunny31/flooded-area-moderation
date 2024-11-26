@@ -8,7 +8,7 @@ export const guilds = commandGuilds;
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`active-moderations`)
-   .setDescription(`View current active moderations in Flooded Area`)
+   .setDescription(`See which players are currently (temporarily) banned from Flooded Area`)
    .setDefaultMemberPermissions(Discord.PermissionFlagsBits.ManageGuild);
 
 
