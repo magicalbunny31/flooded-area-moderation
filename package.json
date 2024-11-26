@@ -1,6 +1,6 @@
 {
    "name": "flooded-area-moderation",
-   "version": "3.0.0",
+   "version": "3.0.1",
    "description": "🤖 in-game moderation for flooded area community",
    "main": "index.js",
    "type": "module",
