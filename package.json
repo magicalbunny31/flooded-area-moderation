@@ -1,6 +1,6 @@
 {
    "name": "flooded-area-moderation",
-   "version": "3.0.1",
+   "version": "3.0.2",
    "description": "🤖 in-game moderation for flooded area community",
    "main": "index.js",
    "type": "module",
@@ -38,7 +38,7 @@
       "set-interval-async": "^3.0.3"
    },
    "devDependencies": {
-      "eslint": "^9.15.0",
+      "eslint": "^9.16.0",
       "globals": "^15.12.0"
    }
 }
