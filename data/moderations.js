@@ -195,7 +195,7 @@ export class ModerationsManager {
          )
          .setDescription(
             [
-               Discord.quote(`Username: @${processedModeration.player.username}`),
+               Discord.quote(`Username: ${Discord.hyperlink(`@${processedModeration.player.username}`, legacy.getUserProfileLinkFromUserId(processedModeration.player.id))}`),
                Discord.quote(`ID: ${processedModeration.player.id}`),
                ``,
                ...processedModeration.action === `revoke-ban`
