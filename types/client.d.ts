@@ -1,4 +1,4 @@
-import ModerationsManager from "../data/moderations.js";
+import ModerationsManager from "../data/classes/moderations-manager.js";
 
 import Discord from "discord.js";
 import { Firestore } from "@google-cloud/firestore";

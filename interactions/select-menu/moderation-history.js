@@ -1,4 +1,4 @@
-import { ModerationsHistory } from "../../data/moderations.js";
+import ModerationsHistory from "../../data/classes/moderations-history.js";
 
 import { deferComponents } from "@magicalbunny31/pawesome-utility-stuffs";
 

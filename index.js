@@ -100,7 +100,7 @@ await client.fennec.initialise();
 
 
 // moderations
-import { ModerationsManager } from "./data/moderations.js";
+import ModerationsManager from "./data/classes/moderations-manager.js";
 
 client.moderations = new ModerationsManager(client).start();
 

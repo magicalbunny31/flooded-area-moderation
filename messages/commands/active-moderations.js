@@ -1,4 +1,4 @@
-import { ActiveModerations } from "../../data/moderations.js";
+import ActiveModerations from "../../data/classes/active-moderations.js";
 
 
 /**

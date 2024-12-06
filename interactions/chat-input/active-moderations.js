@@ -1,5 +1,5 @@
+import ActiveModerations from "../../data/classes/active-moderations.js";
 import { guilds as commandGuilds } from "../../data/experiences.js";
-import { ActiveModerations } from "../../data/moderations.js";
 
 import Discord from "discord.js";
 

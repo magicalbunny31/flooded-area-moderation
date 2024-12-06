@@ -1,4 +1,4 @@
-import { ModerationsStatistics } from "../../data/moderations.js";
+import ModerationsStatistics from "../../data/classes/moderations-statistics.js";
 
 
 /**

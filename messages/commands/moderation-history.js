@@ -1,6 +1,5 @@
+import ModerationsHistory from "../../data/classes/moderations-history.js";
 import { content } from "../../data/defaults.js";
-import { guilds as commandGuilds } from "../../data/experiences.js";
-import { ModerationsHistory } from "../../data/moderations.js";
 import { legacy } from "../../data/roblox.js";
 
 import Discord from "discord.js";

@@ -1,5 +1,5 @@
+import ModerationsStatistics from "../../data/classes/moderations-statistics.js";
 import { guilds as commandGuilds } from "../../data/experiences.js";
-import { ModerationsStatistics } from "../../data/moderations.js";
 
 import Discord from "discord.js";
 

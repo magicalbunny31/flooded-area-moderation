@@ -1,4 +1,4 @@
-import { Help } from "../../data/message-commands.js";
+import Commands from "../../data/classes/commands.js";
 
 import { deferComponents } from "@magicalbunny31/pawesome-utility-stuffs";
 
@@ -29,7 +29,7 @@ export default async interaction => {
 
 
    // show command help
-   const commands = new Help(interaction, selectedMenu);
+   const commands = new Commands(interaction, selectedMenu);
 
    await commands.showCommands();
 };

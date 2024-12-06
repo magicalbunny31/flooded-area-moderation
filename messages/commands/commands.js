@@ -1,4 +1,4 @@
-import { Help } from "../../data/message-commands.js";
+import Commands from "../../data/classes/commands.js";
 
 
 /**
@@ -10,7 +10,7 @@ export default async message => {
 
 
    // show command help
-   const commands = new Help(message, `text-based commands`);
+   const commands = new Commands(message, `text-based commands`);
 
    await commands.showCommands();
 };

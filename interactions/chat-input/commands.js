@@ -1,5 +1,5 @@
+import Commands from "../../data/classes/commands.js";
 import { guilds as commandGuilds } from "../../data/experiences.js";
-import { Help } from "../../data/message-commands.js";
 
 import Discord from "discord.js";
 
@@ -22,7 +22,7 @@ export default async interaction => {
 
 
    // show command help
-   const commands = new Help(interaction, `chat-input application commands`);
+   const commands = new Commands(interaction, `chat-input application commands`);
 
    await commands.showCommands();
 };
