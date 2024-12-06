@@ -15,7 +15,7 @@ await connect();
 const stop = promisify(pm2.stop).bind(pm2);
 
 try {
-   await stop(`flooded area moderation`);
+   await stop(`flooded-area-moderation`);
 
 } catch (error) {
    throw error;

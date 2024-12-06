@@ -16,8 +16,8 @@ const stop = promisify(pm2.stop).bind(pm2);
 const del = promisify(pm2.delete).bind(pm2);
 
 try {
-   await stop(`flooded area moderation`);
-   await del(`flooded area moderation`);
+   await stop(`flooded-area-moderation`);
+   await del(`flooded-area-moderation`);
 
 } catch (error) {
    throw error;

@@ -16,7 +16,7 @@ const start = promisify(pm2.start).bind(pm2);
 
 try {
    await start({
-      name: `flooded area moderation`,
+      name: `flooded-area-moderation`,
       script: `./index.js`,
       args: [ `--color` ],
       output: `./logs/output.log`,

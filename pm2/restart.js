@@ -15,7 +15,7 @@ await connect();
 const restart = promisify(pm2.restart).bind(pm2);
 
 try {
-   await restart(`flooded area moderation`);
+   await restart(`flooded-area-moderation`);
 
 } catch (error) {
    throw error;

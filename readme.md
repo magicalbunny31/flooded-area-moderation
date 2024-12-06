@@ -1,11 +1,11 @@
-# 🤖 flooded area moderation
+# 🤖 flooded-area-moderation "the killer 🤖"
 
 🤖 a discord app used for managing roblox bans, using the roblox apis
 
 🏙️ made primarily for [flooded area community](https://discord.com/servers/flooded-area-community-977254354589462618)
 
 
-## 🏡 find out more about flooded area moderation
+## 🏡 find out more about "the killer 🤖"
 
 🔗 https://nuzzles.dev/dev/flooded-area-moderation
 
@@ -43,7 +43,7 @@ the easiest and quickest way to get this app working for you!
 
 ### 🌐 production
 
-for those who really want their own flooded area moderation~
+for those who really want their own "the killer 🤖"~
 
 > [!IMPORTANT]
 > i will NOT provide help for any additional modifications to this code or how to use different tools and packages - you're on your own at that point!

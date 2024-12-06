@@ -1,5 +1,5 @@
 /**
- * 🤖 flooded area moderation
+ * 🤖 the killer
  * 👥 magicalbunny31 (https://nuzzles.dev)
  * 🗓️ 2023 - 2024
  * 🏡 https://nuzzles.dev/dev/flooded-area-moderation
@@ -91,7 +91,7 @@ client.fennec = new FennecClient({
    fennecProcess: `other-stuffs`,
    fennecUtilities: {
       baseUrl:       process.env.FENNEC_UTILITIES_URL,
-      id:            `flooded area moderation`,
+      id:            `flooded-area-moderation`,
       authorisation: process.env.FENNEC_UTILITIES_AUTHORISATION
    }
 });
