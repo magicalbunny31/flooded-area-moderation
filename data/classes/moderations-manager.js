@@ -489,10 +489,12 @@ export default class ModerationsManager {
     */
    stop() {
       // not yet started
-      if (this.#moderationsTimer)
+      if (!this.#moderationsTimer)
          throw new Error(`🚫 ModerationsManager.start() not yet run`);
 
+      // clear the timer
       clearIntervalAsync(this.#moderationsTimer);
+      this.#moderationsTimer = undefined;
    };
 
 
