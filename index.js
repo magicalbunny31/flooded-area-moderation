@@ -88,7 +88,7 @@ client.firestore = new Firestore({
 import { FennecClient } from "@magicalbunny31/fennec-utilities";
 
 client.fennec = new FennecClient({
-   fennecProcess: `other-stuffs`,
+   fennecProcess: `fox-1`,
    fennecUtilities: {
       baseUrl:       process.env.FENNEC_UTILITIES_URL,
       id:            `flooded-area-moderation`,

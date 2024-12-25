@@ -1,8 +1,8 @@
 pipeline {
    agent {
       node {
-         label 'other-stuffs'
-         customWorkspace '/home/other-stuffs/flooded-area-moderation'
+         label 'apps'
+         customWorkspace '/home/apps/flooded-area-moderation'
       }
    }
 
