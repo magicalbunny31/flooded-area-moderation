@@ -17,7 +17,7 @@ pipeline {
          steps {
             echo "✨ starting.."
             withCredentials([ string(credentialsId: "DOTENV_KEY_FLOODED_AREA_MODERATION", variable: "DOTENV_KEY") ]) {
-               sh "echo ${DOTENV_KEY} > DOTENV_KEY"
+               sh 'echo $DOTENV_KEY > DOTENV_KEY'
             }
             sh "npm start"
          }
