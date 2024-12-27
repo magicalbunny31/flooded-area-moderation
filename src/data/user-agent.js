@@ -1,8 +1,7 @@
 import fs from "node:fs/promises";
-import { getRelativeAbsolutePath } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
-const pkgPath = getRelativeAbsolutePath(`..`, `..`, `package.json`);
+const pkgPath = `./package.json`;
 const pkg = JSON.parse(await fs.readFile(pkgPath));
 
 
