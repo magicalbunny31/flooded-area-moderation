@@ -2,9 +2,10 @@
 .vscode/
 *.code-workspace
 
-# 📜 .env
+# 🔐 secrets
 DOTENV_KEY
 .env*
+.private*
 !.env.project
 !.env.sample
 !.env.vault

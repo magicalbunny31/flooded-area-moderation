@@ -3,7 +3,7 @@
    "compilerOptions": {
       "baseUrl": "./",
       "paths": {
-         "@flooded-area-moderation-types/*": [ "./types/*" ]
+         "@flooded-area-moderation-types/*": [ "./src/types/*" ]
       }
    }
 }

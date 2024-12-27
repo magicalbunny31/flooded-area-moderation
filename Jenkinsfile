@@ -1,33 +1,33 @@
 pipeline {
    agent {
       node {
-         label 'apps'
-         customWorkspace '/home/apps/flooded-area-moderation'
+         label "apps"
+         customWorkspace "/home/apps/flooded-area-moderation"
       }
    }
 
    stages {
-      stage('build') {
+      stage("build") {
          steps {
-            echo '✨ building..'
-            sh 'npm install'
+            echo "✨ building.."
+            sh "npm install"
          }
       }
-      stage('start') {
+      stage("start") {
          steps {
-            echo '✨ starting..'
-            withCredentials([ string(credentialsId: 'DOTENV_KEY_FLOODED_AREA_MODERATION', variable: 'DOTENV_KEY') ]) {
-               sh 'echo $DOTENV_KEY > DOTENV_KEY'
+            echo "✨ starting.."
+            withCredentials([ string(credentialsId: "DOTENV_KEY_FLOODED_AREA_MODERATION", variable: "DOTENV_KEY") ]) {
+               sh "echo ${DOTENV_KEY} > DOTENV_KEY"
             }
-            sh 'npm start'
+            sh "npm start"
          }
       }
    }
 
    post {
       cleanup {
-         echo '✨ cleaning up..'
-         dir('${workspace}@tmp') {
+         echo "✨ cleaning up.."
+         dir("${workspace}@tmp") {
             deleteDir()
          }
       }
