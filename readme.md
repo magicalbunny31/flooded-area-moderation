@@ -43,7 +43,7 @@
       - under "ADD KEY", select "Create new key"
       - a json file will be downloaded to your device!
       - open the json file: you'll need it for step 6
-4. get your [roblox open cloud] api keys
+4. get your [roblox open cloud](https://create.roblox.com/docs/cloud/open-cloud) api keys
    - [create an api key](https://create.roblox.com/dashboard/credentials) by pressing the "Create API Key" button
    - name it anything you want
    - under "Access Permissions", give it the following scopes:
@@ -65,7 +65,7 @@
    - save the generated api key: you'll need it for step 6
 6. `environment variables`
    - input values into [`./src/.env.sample`](./src/.env.sample) according to their keys
-   - rename [`./src/.env.sample`](./src/.env.sample) to `.env`
+   - rename the [`./src/.env.sample`](./src/.env.sample) file to `.env`
    - [google cloud firestore](https://cloud.google.com/firestore) api keys
       - `GCP_PROJECT_ID`: the `project_id`'s value in the downloaded json file from step 3
       - `GCP_CLIENT_EMAIL`: the `client_email`'s value in the downloaded json file from step 3
@@ -92,7 +92,7 @@
       - ~~[`./src/data/developers.js`](./src/data/developers.js)~~
          - the `developers` export variable is only used for [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities)
          - since you (assumedly) disabled it in step 7, this file is now redundant~
-         - ..don't delete it though, you will come across import errors regardless
+         - ..don't delete it, though: you will come across import errors
       - [`./src/data/discord.js`](./src/data/discord.js)
          - the default export for this file is a list of objects that are defined in this file
             - the schema for each object will follow the format as the `FloodedAreaCommunity` variable in this file
@@ -108,7 +108,7 @@
       - [`./src/data/user-agent.js`](./src/data/user-agent.js)
          - the default export for this file returns a formatted `User-Agent` string for http requests (to apis)
          - this is generated from [`./package.json`](./package.json) and is formatted to look like this:
-            - "**`<package.json name>`**`/`**`<package.json version>`**` (`**`package.json homepage`**`)`"
+            - "**`<package.json name>`**`/`**`<package.json version>`**` (`**`<package.json homepage>`**`)`"
          - if you need to change the `User-Agent` string manually, you must replace the default export with your own string~
 9. `dependencies`
    - open the command line inside the repository's main directory
