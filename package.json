@@ -2,7 +2,7 @@
    "name": "flooded-area-moderation",
    "version": "3.1.1",
    "description": "🤖 in-game moderation for flooded area community",
-   "main": "index.js",
+   "main": "./src/index.js",
    "type": "module",
    "scripts": {
       "dev": "node ./src/index.js",
