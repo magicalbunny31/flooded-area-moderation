@@ -13,9 +13,5 @@ DOTENV_KEY
 # 📜 logs
 logs/
 
-# 📄 scripts
-scripts/
-
 # 📦 dependencies
 node_modules/
-.flaskenv*
