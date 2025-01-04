@@ -1,7 +1,7 @@
 /**
  * 🤖 the killer
  * 👥 magicalbunny31 (https://nuzzles.dev)
- * 🗓️ 2023 - 2024
+ * 🗓️ 2023 - 2025
  * 🏡 https://nuzzles.dev/dev/flooded-area-moderation
  * 🔗 https://nuzzles.dev/dev/flooded-area-moderation/github
  */
