@@ -20,6 +20,7 @@
       "url": "https://github.com/magicalbunny31/flooded-area-moderation/issues"
    },
    "homepage": "https://nuzzles.dev/dev/flooded-area-moderation",
+   "license": "MIT",
    "engines": {
       "node": ">=18"
    },
