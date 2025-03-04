@@ -136,13 +136,16 @@ const [ globalCommands, guildCommands ] = partition(
    command => !command.guilds
 );
 
-const globalCommandsData = globalCommands.map(command => command.data);
-
-const guildCommandsData   =     guildCommands.map    (command => command.data);
+const globalCommandsData  = globalCommands.map(command => command.data);
 const guildCommandsGuilds = set(guildCommands.flatMap(command => command.guilds));
 
 for (const guildId of guildCommandsGuilds)
-   await client.application.commands.set(guildCommandsData, guildId);
+   await client.application.commands.set(
+      guildCommands
+         .filter(command => command.guilds.includes(guildId))
+         .map(command => command.data),
+      guildId
+   );
 
 await client.application.commands.set(globalCommandsData);
 
