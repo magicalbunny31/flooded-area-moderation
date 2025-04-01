@@ -406,6 +406,7 @@ export default class ModerationsHistory {
 
       // edit the message
       await this.#editMessage({
+         content: null,
          embeds,
          components,
          allowedMentions: {
