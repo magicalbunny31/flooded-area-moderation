@@ -406,7 +406,6 @@ export default class ModerationsHistory {
 
       // edit the message
       await this.#editMessage({
-         content: `${this.#interactionOrMessage.client.allEmojis.warning} ${Discord.bold(`Known issue`)}: recent moderations may not show up here ${Discord.hyperlink(`due to a Roblox issue`, Discord.hideLinkEmbed(`https://devforum.roblox.com/t/exception-was-thrown-by-handler-when-querying-datastore-entries-with-certain-characters/3268209?u=magicalbunny31`))}, this warning will be removed once it's confirmed to have been fixed.`, // TODO
          embeds,
          components,
          allowedMentions: {
