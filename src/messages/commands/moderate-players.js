@@ -1,5 +1,5 @@
+import config from "../../data/config.js";
 import { content, modal, defaultBanReason } from "../../data/defaults.js";
-import discordData from "../../data/discord.js";
 import { toSeconds } from "../../data/format-duration.js";
 import { commands, prefix } from "../../data/message-commands.js";
 
@@ -200,10 +200,9 @@ export default async message => {
 
 
    // person doesn't have required roles
-   const moderatorRoles = discordData
-      .find(discordData => discordData.guildId === message.guild.id)
-      .roles
-      .moderatorIds;
+   const moderatorRoles = config
+      .find(config => config.discord.guildId === message.guildId)
+      .discord.roles.moderatorIds;
 
    if (!message.member.roles.cache.some(role => moderatorRoles.includes(role.id)))
       return await message.reply({

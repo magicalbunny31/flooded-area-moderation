@@ -1,12 +1,12 @@
 import ModerationsHistory from "../../classes/moderations-history.js";
+import config from "../../data/config.js";
 import { content } from "../../data/defaults.js";
-import { guilds as commandGuilds } from "../../data/experiences.js";
 import { legacy } from "../../data/roblox.js";
 
 import Discord from "discord.js";
 
 
-export const guilds = commandGuilds;
+export const guilds = config.map(config => config.discord.guildId);
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`moderation-history`)

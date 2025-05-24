@@ -1,5 +1,5 @@
 import cache from "./cache.js";
-import experiences from "./experiences.js";
+import config from "./config.js";
 import userAgent from "./user-agent.js";
 
 import path from "node:path";
@@ -130,10 +130,9 @@ export const bloxlink = {
          return cache.get(cacheId);
 
       // get this guildId's api key
-      const apiKey = experiences
-         .find(experience => experience.guild.guildIds.includes(guildId))
-         ?.apiKey
-         .bloxlink;
+      const apiKey = config
+         .find(config => config.discord.guildId === guildId)
+         .discord.apiKey?.bloxlink;
 
       // no api key
       if (!apiKey)
@@ -183,10 +182,9 @@ export const bloxlink = {
          return cache.get(cacheId);
 
       // get this guildId's api key
-      const apiKey = experiences
-         .find(experience => experience.guild.guildIds.includes(guildId))
-         ?.apiKey
-         .bloxlink;
+      const apiKey = config
+         .find(config => config.discord.guildId === guildId)
+         .discord.apiKey?.bloxlink;
 
       // no api key
       if (!apiKey)
@@ -377,10 +375,9 @@ export const legacy = {
 export const cloud = {
 
 
-   getApiKey: universeId => experiences
-      .find(experience => experience.experience.universeId === universeId)
-      .apiKey
-      .cloud,
+   getApiKey: universeId => config
+      .find(config => config.roblox.experience.universeId === universeId)
+      .roblox.apiKey.cloud,
 
 
    /**

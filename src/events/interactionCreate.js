@@ -1,4 +1,4 @@
-import discordData from "../data/discord.js";
+import config from "../data/config.js";
 
 import path from "node:path";
 import Discord from "discord.js";
@@ -14,10 +14,9 @@ export const name = Discord.Events.InteractionCreate;
  */
 export default async interaction => {
    // person doesn't have required roles
-   const moderatorRoles = discordData
-      .find(discordData => discordData.guildId === interaction.guildId)
-      .roles
-      .moderatorIds;
+   const moderatorRoles = config
+      .find(config => config.discord.guildId === interaction.guildId)
+      .discord.roles.moderatorIds;
 
    const type = (() => {
       switch (true) {

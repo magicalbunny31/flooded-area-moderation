@@ -1,6 +1,5 @@
+import config from "../data/config.js";
 import { content, defaultBanReason } from "../data/defaults.js";
-import discordData from "../data/discord.js";
-import experiences from "../data/experiences.js";
 import formatDuration, { toSeconds } from "../data/format-duration.js";
 import { prefix } from "../data/message-commands.js";
 import { bloxlink, legacy, cloud } from "../data/roblox.js";
@@ -63,10 +62,9 @@ export default class ModerationsManager {
     * @param {Discord.Snowflake} guildId
     */
    getUniverseId(guildId) {
-      return experiences
-         .find(experience => experience.guild.guildIds.includes(guildId))
-         .experience
-         .universeId;
+      return config
+         .find(config => config.discord.guildId === guildId)
+         .roblox.experience.universeId;
    };
 
 
@@ -290,10 +288,9 @@ export default class ModerationsManager {
     * @param {import("@flooded-area-moderation-types/moderations").ProcessedModerationData} processedModeration
     */
    async #logModeration(processedModeration) {
-      const logsWebhookUrl = discordData
-         .find(discordData => discordData.guildId === processedModeration.message.guildId)
-         .logs
-         .webhookUrl;
+      const logsWebhookUrl = config
+         .find(config => config.discord.guildId === processedModeration.message.guildId)
+         .discord.logs.webhookUrl;
 
       const webhookClient = new Discord.WebhookClient({
          url: logsWebhookUrl

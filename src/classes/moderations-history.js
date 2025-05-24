@@ -1,5 +1,5 @@
+import config from "../data/config.js";
 import { modal } from "../data/defaults.js";
-import discordData from "../data/discord.js";
 import { legacy, cloud } from "../data/roblox.js";
 
 import Discord from "discord.js";
@@ -194,10 +194,9 @@ export default class ModerationsHistory {
     * @param {Discord.Snowflake} guildId
     */
    #getLogsChannelId(guildId) {
-      return discordData
-         .find(discordData => discordData.guildId === guildId)
-         .logs
-         .channelId;
+      return config
+         .find(config => config.discord.guildId === guildId)
+         .discord.logs.channelId;
    };
 
 

@@ -1,6 +1,6 @@
 import cache from "../../data/cache.js";
+import config from "../../data/config.js";
 import { content, modal, defaultBanReason } from "../../data/defaults.js";
-import discordData from "../../data/discord.js";
 
 import Discord from "discord.js";
 import dayjs from "dayjs";
@@ -28,10 +28,9 @@ export default async interaction => {
    const commandData = cache.get(commandDataId);
 
    if (!commandData) {
-      const moderationLogs = discordData
-         .find(discordData => discordData.guildId === interaction.guildId)
-         .logs
-         .channelId;
+      const moderationLogs = config
+         .find(config => config.discord.guildId === interaction.guildId)
+         .discord.logs.channelId;
 
       const commandDataExpiresAt = dayjs
          .unix(Discord.SnowflakeUtil.timestampFrom(commandDataId))

@@ -1,10 +1,10 @@
 import Commands from "../../classes/commands.js";
-import { guilds as commandGuilds } from "../../data/experiences.js";
+import config from "../../data/config.js";
 
 import Discord from "discord.js";
 
 
-export const guilds = commandGuilds;
+export const guilds = config.map(config => config.discord.guildId);
 
 export const data = new Discord.SlashCommandBuilder()
    .setName(`commands`)
