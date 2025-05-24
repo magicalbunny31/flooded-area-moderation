@@ -57,7 +57,7 @@ export default async interaction => {
       // "defer" the interaction
       const interactionResponse = await interaction.reply({
          content: Discord.heading(`${interaction.client.allEmojis.loading} ${content.fetchingPlayerData}`, Discord.HeadingLevel.Three),
-         fetchReply: true
+         withResponse: true
       });
 
 
@@ -80,7 +80,7 @@ export default async interaction => {
          privateReason: privateBanReason
       };
 
-      await interaction.client.moderations.pushModeration(interactionResponse, moderationData);
+      await interaction.client.moderations.pushModeration(interactionResponse.resource.message, moderationData);
 
 
    } else { // no public-ban-reason option specified, show the modal

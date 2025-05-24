@@ -36,9 +36,9 @@ export default async interaction => {
 
 
    // "defer" the interaction
-   const message = await interaction.reply({
+   const interactionResponse = await interaction.reply({
       content: Discord.heading(`${interaction.client.allEmojis.loading} ${content.fetchingPlayerData}`, Discord.HeadingLevel.Three),
-      fetchReply: true
+      withResponse: true
    });
 
 
@@ -48,7 +48,7 @@ export default async interaction => {
 
 
    // get player data and prompt if both the above data returns something
-   const playerData = await interaction.client.moderations.resolvePlayerData(message, playerDataIfId, playerDataIfUsername);
+   const playerData = await interaction.client.moderations.resolvePlayerData(interactionResponse.resource.message, playerDataIfId, playerDataIfUsername);
 
 
    // this isn't a player

@@ -1,5 +1,6 @@
 import ActiveModerations from "../../classes/active-moderations.js";
 
+import Discord from "discord.js";
 import { deferComponents } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
@@ -28,13 +29,15 @@ export default async interaction => {
    )
       await interaction.update({
          components: deferComponents(interaction.customId, interaction.message.components),
-         fetchReply: true
+         withResponse: true
       });
 
    else
       await interaction.deferReply({
-         fetchReply: true,
-         ephemeral: true
+         flags: [
+            Discord.MessageFlags.Ephemeral
+         ],
+         withResponse: true
       });
 
 

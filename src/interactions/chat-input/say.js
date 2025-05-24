@@ -81,7 +81,9 @@ export default async interaction => {
 
    // reply to the interaction
    await interaction.deferReply({
-      ephemeral: true
+      flags: [
+         Discord.MessageFlags.Ephemeral
+      ]
    });
 
 
