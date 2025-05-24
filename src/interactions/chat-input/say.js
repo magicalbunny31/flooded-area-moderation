@@ -53,8 +53,16 @@ export default async interaction => {
    // empty message
    if (!content && !attachment)
       return await interaction.reply({
-         content: Discord.heading(`${interaction.client.allEmojis.error} At least one of \`content\` or \`attachment\` options are required`, Discord.HeadingLevel.Three),
-         ephemeral: true
+         components: [
+            new Discord.TextDisplayBuilder()
+               .setContent(
+                  Discord.heading(`${interaction.client.allEmojis.error} At least one of \`content\` or \`attachment\` options are required`, Discord.HeadingLevel.Three)
+               )
+         ],
+         flags: [
+            Discord.MessageFlags.Ephemeral,
+            Discord.MessageFlags.IsComponentsV2
+         ]
       });
 
 
@@ -69,13 +77,22 @@ export default async interaction => {
 
    if (attachment?.size > fileUploadLimit)
       return await interaction.reply({
-         content: [
-            Discord.heading(`${interaction.client.allEmojis.error} Invalid option`, Discord.HeadingLevel.Three),
-            Discord.unorderedList([
-               `${Discord.inlineCode(`attachment`)} option's file size exceeds this server's file upload limit.`
-            ])
+         components: [
+            new Discord.TextDisplayBuilder()
+               .setContent(
+                  [
+                     Discord.heading(`${interaction.client.allEmojis.error} Invalid option`, Discord.HeadingLevel.Three),
+                     Discord.unorderedList([
+                        `${Discord.inlineCode(`attachment`)} option's file size exceeds this server's file upload limit.`
+                     ])
+                  ]
+                     .join(`\n`)
+               )
          ],
-         ephemeral: true
+         flags: [
+            Discord.MessageFlags.Ephemeral,
+            Discord.MessageFlags.IsComponentsV2
+         ]
       });
 
 

@@ -87,7 +87,15 @@ export default async message => {
 
    if (!message.member.roles.cache.some(role => moderatorRoles.includes(role.id)))
       return await message.reply({
-         content: Discord.heading(`${message.client.allEmojis.error} ${content.noPermission}`, Discord.HeadingLevel.Three),
+         components: [
+            new Discord.TextDisplayBuilder()
+               .setContent(
+                  Discord.heading(`${message.client.allEmojis.error} ${content.noPermission}`, Discord.HeadingLevel.Three)
+               )
+         ],
+         flags: [
+            Discord.MessageFlags.IsComponentsV2
+         ],
          allowedMentions: {
             repliedUser: false
          }

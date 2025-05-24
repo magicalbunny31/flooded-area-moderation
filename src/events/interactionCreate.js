@@ -33,8 +33,16 @@ export default async interaction => {
    if (!interaction.member.roles.cache.some(role => moderatorRoles.includes(role.id)))
       if (canRespond)
          return await interaction.reply({
-            content: Discord.heading(`${interaction.client.allEmojis.error} You do not have permission to use this command`, Discord.HeadingLevel.Three),
-            ephemeral: true
+            components: [
+               new Discord.TextDisplayBuilder()
+                  .setContent(
+                     Discord.heading(`${interaction.client.allEmojis.error} You do not have permission to use this command`, Discord.HeadingLevel.Three)
+                  )
+            ],
+            flags: [
+               Discord.MessageFlags.Ephemeral,
+               Discord.MessageFlags.IsComponentsV2
+            ]
          });
       else
          return;
