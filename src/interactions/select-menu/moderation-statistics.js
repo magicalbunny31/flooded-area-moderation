@@ -18,7 +18,7 @@ export default async interaction => {
          || interaction.message?.reference && (await interaction.message.fetchReference()).author.id === interaction.user.id
    )
       await interaction.update({
-         components: deferComponents(interaction.customId, interaction.values, interaction.message.components)
+         components: deferComponents(interaction.customId, interaction.message.components, interaction.values)
       });
 
    else
