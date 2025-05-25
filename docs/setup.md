@@ -76,7 +76,10 @@
    - replace any occurrences of `<GUILD_ID>` in the keys (with `LOGS_WEBHOOK_URL_` prefixes) with webhook urls created in the channel of where to post the moderation log embed for player moderations (in the guild where the commands are ran in)
       - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
    - for help on how to create webhooks in a discord channel, see [discord's help centre article on intro to webhooks](https://support.discord.com/hc/articles/228383668)
-9. configuration files
+9. get your discord app's bot token from the [discord developer dashboard](https://discord.com/developers/applications) to your `.env` file
+   - insert it into the value of `TOKEN` near the top of the file
+   - for help on where to find your discord app's bot token, see [discord.js' guide on setting up an application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+10. configuration files
    - these files are kinda like environment variables, however they aren't important enough to stay hidden
    - edit the list which is `export default` in [`/src/data/config.js`](../src/data/config.js):
       - one discord guild can only link to one roblox experience - there will be limited support for allowing multiple relationships between multiple discord guilds or roblox experiences
@@ -87,16 +90,16 @@
       - some variables are taken from the from [`./package.json`](../package.json): you should edit the `name`, `version`, and `homepage` keys inside that file and replace them with your own values
       - you'll also need to change the value of the `email` variable, or remove it from the `User-Agent` string
       - for any other changes to the `User-Agent` string, you can directly edit the string~
-10. dependencies
+11. dependencies
    - open the command line inside the repository's main directory
    - run the command `npm install`
-11. start the app
+12. start the app
    - prefer using [`pm2`](https://pm2.io/)?
       - run the command `npm start`
       - *for more information on how to configure [`pm2`](https://pm2.io/) to your liking, see [pm2.io/docs/plus/overview](https://pm2.io/docs/plus/overview/)*
    - just wanna start the app from the terminal instantly?
       - run the command `npm run dev`
-12. celebrate
+13. celebrate
    - congratulations! your app should be running now~
 
 
@@ -105,3 +108,11 @@
 - usage of the [`Jenkinsfile`](../Jenkinsfile) is completely optional and can be deleted if not needed
 - for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys
+- you'll need to upload some emojis for the app to use too
+   - download the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
+   - then, go to the [discord developer dashboard](https://discord.com/developers/applications) and navigate to your app's emoji tab
+   - upload all the files from the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and rename the emojis you upload to the filename of the image
+   - with the way my helper package [@magicalbunny31/pawesome-utility-stuffs](https://github.com/magicalbunny31/pawesome-utility-stuffs), works the app's own emojis are bound to `Client#allEmojis` (you may even notice the references to this!) using the package's [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function
+      - it works by fetching all emojis uploaded to the app and adding them to an object with the key as the name of the emoji and its value as the markdown for the emoji
+      - the [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function also includes other custom emojis that exist in my own private servers - attempting to use these emojis may not work as your app won't exist in my private servers
+         - note that the app's own emojis take precedence over the emojis from my private servers should there be a naming conflict with any extra emojis you decide to upload
