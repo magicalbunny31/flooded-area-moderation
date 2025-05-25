@@ -1,3 +1,4 @@
+import { getModerationHistory } from "../data/database.js";
 import { bloxlink, legacy } from "../data/roblox.js";
 
 import Discord from "discord.js";
@@ -52,78 +53,34 @@ export default class ModerationsStatistics {
 
 
    /**
-    * @param {import("@google-cloud/firestore").CollectionGroup} collectionGroup
-    */
-   async #moderationHistoryQueryRoblox(collectionGroup) {
-      await this.#setBloxlinkLinkedAccountPlayerId();
-
-      if (!this.#bloxlinkLinkedAccountPlayerId)
-         return undefined;
-
-      return collectionGroup.where(`moderator.roblox`, `==`, this.#bloxlinkLinkedAccountPlayerId);
-   };
-
-
-   /**
-    * @param {import("@google-cloud/firestore").CollectionGroup} collectionGroup
-    */
-   #moderationHistoryQueryDiscord(collectionGroup) {
-      const userId = this.#commandUser.id;
-      return collectionGroup.where(`moderator.discord`, `==`, userId);
-   };
-
-
-   /**
-    * @param {import("@google-cloud/firestore").Query} moderationHistoryQuery
-    * @param {number} universeId
-    * @returns {Promise<[ import("@flooded-area-moderation-types/moderations").Action, number ][]>}
-    */
-   async #mapModerationHistory(moderationHistoryQuery, universeId) {
-      const moderationHistory = [];
-
-      if (!moderationHistoryQuery)
-         return moderationHistory;
-
-      const moderationHistorySnap = await moderationHistoryQuery.get();
-      for (const moderationHistoryDocSnap of moderationHistorySnap.docs) {
-         const [ _universes, universe, _players, player, _moderationHistory, timestamp ] = moderationHistoryDocSnap.ref.path.split(`/`);
-         const data = moderationHistoryDocSnap.data();
-
-         if (+universe !== +universeId)
-            continue;
-
-         switch (this.#selectedMenu) {
-            case `all`:
-               moderationHistory.push([ data.action, +player ]);
-               break;
-
-            default:
-               const moderationDate = dayjs(+timestamp);
-               const inRange = dayjs().subtract(+this.#selectedMenu, `days`).isBefore(moderationDate);
-               if (!inRange)
-                  break;
-               moderationHistory.push([ data.action, +player ]);
-         };
-      };
-
-      return moderationHistory;
-   };
-
-
-   /**
     * @param {Discord.Snowflake} guildId
+    * @returns {Promise<[ import("@flooded-area-moderation-types/moderations").Action, number ][]>}
     */
    async #getModeratedPlayers(guildId) {
       const universeId = this.#interactionOrMessage.client.moderations.getUniverseId(guildId);
 
-      const moderationHistoryColGroup     = this.#interactionOrMessage.client.firestore.collectionGroup(`moderation-history`);
-      const moderationHistoryQueryRoblox  = await this.#moderationHistoryQueryRoblox (moderationHistoryColGroup);
-      const moderationHistoryQueryDiscord =       this.#moderationHistoryQueryDiscord(moderationHistoryColGroup);
+      const moderatedPlayersDataStatistics = await getModerationHistory(this.#interactionOrMessage.client, universeId, this.#bloxlinkLinkedAccountPlayerId, this.#commandUser.id);
 
-      return [
-         await this.#mapModerationHistory(moderationHistoryQueryRoblox,  universeId),
-         await this.#mapModerationHistory(moderationHistoryQueryDiscord, universeId)
-      ];
+      return moderatedPlayersDataStatistics
+         .map(moderatedPlayersDataStatistics => {
+            if (!moderatedPlayersDataStatistics)
+               return []; // the roblox list (at index 0) may be undefined, if it is then just return an empty list
+            return moderatedPlayersDataStatistics
+               .map(moderatedPlayersDataStatistics => {
+                  switch (this.#selectedMenu) {
+                     case `all`:
+                        return [ moderatedPlayersDataStatistics.action, moderatedPlayersDataStatistics.playerId ];
+
+                     default:
+                        const moderationDate = dayjs(moderatedPlayersDataStatistics.id);
+                        const inRange = dayjs().subtract(+this.#selectedMenu, `days`).isBefore(moderationDate);
+                        if (!inRange)
+                           return undefined; // this moderation is out of range for the menu, return undefined and .filter(Boolean) it after the .map() function
+                        return [ moderatedPlayersDataStatistics.action, moderatedPlayersDataStatistics.playerId ];
+                  };
+               })
+               .filter(Boolean);
+         });
    };
 
 
@@ -250,6 +207,10 @@ export default class ModerationsStatistics {
    async showModerationStatistics() {
       // set command user
       this.#setCommandUser();
+
+
+      // set bloxlink lined account player id
+      await this.#setBloxlinkLinkedAccountPlayerId();
 
 
       // get database entries

@@ -1,4 +1,5 @@
 import config from "../data/config.js";
+import { setPlayerModerationHistory } from "../data/database.js";
 import { content, defaultBanReason } from "../data/defaults.js";
 import formatDuration, { toSeconds } from "../data/format-duration.js";
 import { prefix } from "../data/message-commands.js";
@@ -339,23 +340,7 @@ export default class ModerationsManager {
 
       const universeId = this.getUniverseId(processedModeration.message.guildId);
 
-      const moderationHistoryDocRef = this.#client.firestore.collection(`universes`).doc(`${universeId}`).collection(`players`).doc(`${processedModeration.player.id}`).collection(`moderation-history`).doc(`${timestamp}`);
-      await moderationHistoryDocRef.set({
-         action: processedModeration.action,
-         length: processedModeration.length ?? null,
-         excludeAltAccounts: processedModeration.excludeAltAccounts ?? null,
-         reason: {
-            display: processedModeration.displayReason ?? null,
-            private: processedModeration.privateReason ?? null
-         },
-         moderator: {
-            discord: processedModeration.discordModerator.id
-         },
-         message: {
-            command: messageCommandUrl,
-            log: messageLogUrl
-         }
-      });
+      await setPlayerModerationHistory(this.#client, universeId, processedModeration.player.id, timestamp, processedModeration, messageCommandUrl, messageLogUrl);
 
       return true;
    };
@@ -648,7 +633,7 @@ export default class ModerationsManager {
          .setAuthor({
             name: `${playerData.displayName} (@${playerData.name || playerData.username})`,
             url: legacy.getUserProfileLinkFromUserId(playerData.id),
-            iconURL: playerData.avatar
+            iconURL: playerData.avatar || null
          });
    };
 

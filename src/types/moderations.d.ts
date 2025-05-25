@@ -90,13 +90,20 @@ export interface ParsedModerationData {
       private: string?;
    };
    moderator: {
-      roblox?: number | string;
+      roblox?: number?;
       discord?: string;
    };
    message: {
       command: string?;
       log: string?;
    };
+};
+
+
+export interface ParsedModerationDataStatistics {
+   id: number;
+   action: Action;
+   playerId: number;
 };
 
 

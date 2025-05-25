@@ -19,6 +19,7 @@ try {
       name: `flooded-area-moderation`,
       script: `./src/index.js`,
       args: [ `--color` ],
+      interpreterArgs: [ `--experimental-sqlite` ],
       output: `./logs/output.log`,
       error: `./logs/error.log`,
       log_date_format: `[[]HH:mm:ss] [[]DD-MMM-YYYY]`,

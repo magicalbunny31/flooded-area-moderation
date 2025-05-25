@@ -1,4 +1,5 @@
 import config from "../data/config.js";
+import { getPlayerModerationHistory } from "../data/database.js";
 import { modal } from "../data/defaults.js";
 import { legacy, cloud } from "../data/roblox.js";
 
@@ -121,24 +122,6 @@ export default class ModerationsHistory {
 
 
    /**
-    * @returns {Promise<import("@flooded-area-moderation-types/moderations").ParsedModerationData[]>}
-    */
-   async #getDatabaseModerationHistory() {
-      const moderationHistoryColRef  = this.#interactionOrMessage.client.firestore.collection(`universes`).doc(`${this.#universeId}`).collection(`players`).doc(`${this.#playerData.id}`).collection(`moderation-history`);
-      const moderationHistoryColSnap = await moderationHistoryColRef.get();
-      const moderationHistoryColDocs = moderationHistoryColSnap.docs;
-
-      return moderationHistoryColDocs.map(moderationHistoryDocSnap => {
-         const moderationHistoryDocData = moderationHistoryDocSnap.data();
-         return {
-            id: +moderationHistoryDocSnap.id,
-            ...moderationHistoryDocData
-         };
-      });
-   };
-
-
-   /**
     * @param {import("@flooded-area-moderation-types/moderations").ParsedModerationData[]} apiModerationHistory
     * @param {import("@flooded-area-moderation-types/moderations").ParsedModerationData[]} databaseModerationHistory
     */
@@ -232,7 +215,7 @@ export default class ModerationsHistory {
 
 
       // get moderation history from the database
-      const databaseModerationHistory = await this.#getDatabaseModerationHistory();
+      const databaseModerationHistory = await getPlayerModerationHistory(this.#interactionOrMessage.client, this.#universeId, this.#playerData.id);
 
 
       // merge moderation histories, allowing the database logs to have priority

@@ -4,6 +4,13 @@ dotenv.config({ DOTENV_KEY: dotenvKey, path: `./src/.env` });
 
 
 /**
+ * 📦 whether the app will use firestore (online) or a local sqlite file as the database
+ * 📋 see the readme file for documentation !!
+ */
+export const isFirestore = true;
+
+
+/**
  * 🗃️ this list defines the discord guilds and roblox experience that the app will run in
  * ↔️ one discord guild can only link to one roblox experience - there will be limited support for allowing multiple relationships between multiple discord guilds or roblox experiences
  * 📄 for typings on how to format your own entry in this list, see: /src/types/config.d.ts

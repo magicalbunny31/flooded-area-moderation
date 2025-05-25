@@ -71,17 +71,24 @@ await client.login(process.env.TOKEN);
 
 
 // database
-import { Firestore } from "@google-cloud/firestore";
+import { isFirestore } from "./data/config.js";
 
-client.firestore = new Firestore({
-   credentials: {
-      client_email: process.env.GCP_CLIENT_EMAIL,
-      private_key: process.env.GCP_PRIVATE_KEY
-   },
-   databaseId: `flooded-area-moderation-discord`,
-   projectId: process.env.GCP_PROJECT_ID,
-   ssl: true
-});
+import { Firestore } from "@google-cloud/firestore";
+import { initialiseSqlite } from "./database/sqlite.js";
+
+if (isFirestore)
+   client.firestore = new Firestore({
+      credentials: {
+         client_email: process.env.GCP_CLIENT_EMAIL,
+         private_key: process.env.GCP_PRIVATE_KEY
+      },
+      databaseId: `flooded-area-moderation-discord`,
+      projectId: process.env.GCP_PROJECT_ID,
+      ssl: true
+   });
+
+else
+   client.sqlite = initialiseSqlite();
 
 
 // fennec

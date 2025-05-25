@@ -1,5 +1,6 @@
 import ModerationsManager from "../classes/moderations-manager.js";
 
+import { DatabaseSync } from "node:sqlite";
 import Discord from "discord.js";
 import { Firestore } from "@google-cloud/firestore";
 import { emojis } from "@magicalbunny31/pawesome-utility-stuffs";
@@ -34,7 +35,7 @@ interface AnySelectMenuCommandData extends Omit<ApplicationCommandData, "data" |
 interface Client extends Discord.Client {
    allEmojis: ReturnType<typeof emojis>;
    fennec: FennecClient;
-   firestore: Firestore;
+   firestore?: Firestore;
    interactions: {
       "autocomplete": Discord.Collection<string, AutocompleteCommandData>;
       "button":       Discord.Collection<string, ButtonCommandData>;
@@ -43,6 +44,7 @@ interface Client extends Discord.Client {
       "select-menu":  Discord.Collection<string, AnySelectMenuCommandData>;
    };
    moderations: ModerationsManager;
+   sqlite?: DatabaseSync;
 };
 
 export interface Interaction extends Discord.Interaction {

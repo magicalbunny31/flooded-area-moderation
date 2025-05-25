@@ -2,6 +2,9 @@
 .vscode/
 *.code-workspace
 
+# 🗃️ databases
+*.db
+
 # 🔐 secrets
 DOTENV_KEY
 .env*
