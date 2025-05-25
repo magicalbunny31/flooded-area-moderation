@@ -71,7 +71,7 @@ export const setPlayerModerationHistory = async (client, universeId, playerId, m
       const moderationHistoryDocRef = client.firestore.collection(`universes`).doc(`${universeId}`).collection(`players`).doc(`${playerId}`).collection(`moderation-history`).doc(`${moderationHistoryId}`);
       await moderationHistoryDocRef.set({
          action: processedModeration.action,
-         length: processedModeration.length,
+         length: processedModeration?.length ?? null,
          excludeAltAccounts: processedModeration.excludeAltAccounts ?? null,
          reason: {
             display: processedModeration.displayReason ?? null,
