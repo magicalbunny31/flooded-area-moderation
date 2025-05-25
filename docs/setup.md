@@ -41,7 +41,7 @@
       - for instructions on setting up [google cloud firestore](https://cloud.google.com/firestore), see **[the docs here](./setup-firestore.md)**
    - though, [node.js native sqlite](https://nodejs.org/api/sqlite.html) was added as an alternative for those who want to fully self-host the app
       - when choosing [node.js native sqlite](https://nodejs.org/api/sqlite.html), exercise extreme caution with your local database file (which will be generated in [`src/database/sqlite.db`](../src/database/sqlite.db))! make sure it doesn't accidentally get committed, deleted, compromised, or something along those lines~
-      - for instructions on setting up [node.js native sqlite](https://nodejs.org/api/sqlite.html), see **[the docs here](./setup-sqlitemd)**
+      - for instructions on setting up [node.js native sqlite](https://nodejs.org/api/sqlite.html), see **[the docs here](./setup-sqlite.md)**
 6. get your [roblox open cloud](https://create.roblox.com/docs/cloud/open-cloud) api keys
    - [create an api key](https://create.roblox.com/dashboard/credentials) by pressing the "Create API Key" button
    - name it anything you want
