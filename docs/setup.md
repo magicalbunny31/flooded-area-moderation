@@ -94,16 +94,24 @@
       - some variables are taken from the from [`./package.json`](../package.json): you should edit the `name`, `version`, and `homepage` keys inside that file and replace them with your own values
       - you'll also need to change the value of the `email` variable, or remove it from the `User-Agent` string
       - for any other changes to the `User-Agent` string, you can directly edit the string~
-11. dependencies
+11. upload some emojis for the app to use
+   - download the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
+   - then, go to the [discord developer dashboard](https://discord.com/developers/applications) and navigate to your app's emoji tab
+   - upload all the files from the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and rename the emojis you upload to the filename of the image
+   - with the way my helper package [@magicalbunny31/pawesome-utility-stuffs](https://github.com/magicalbunny31/pawesome-utility-stuffs), works the app's own emojis are bound to `Client#allEmojis` (you may even notice the references to this!) using the package's [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function
+      - it works by fetching all emojis uploaded to the app and adding them to an object with the key as the name of the emoji and its value as the markdown for the emoji
+      - the [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function also includes other custom emojis that exist in my own private servers - attempting to use these emojis may not work as your app won't exist in my private servers
+         - note that the app's own emojis take precedence over the emojis from my private servers should there be a naming conflict with any extra emojis you decide to upload
+12. dependencies
    - open the command line inside the repository's main directory
    - run the command `npm install`
-12. start the app
+13. start the app
    - prefer using [`pm2`](https://pm2.io/)?
       - run the command `npm start`
       - *for more information on how to configure [`pm2`](https://pm2.io/) to your liking, see [pm2.io/docs/plus/overview](https://pm2.io/docs/plus/overview/)*
    - just wanna start the app from the terminal instantly?
       - run the command `npm run dev`
-13. install the app to your discord server(s)
+14. install the app to your discord server(s)
    - from the [discord developer dashboard](https://discord.com/developers/applications) for your app, go to the "OAuth2" tab and scroll down to the "OAuth2 URL Generator"
    - under "Scopes", select `bot`
    - under "Bot Permissions", selecting any permissions will create a role that is managed by the integration
@@ -111,7 +119,7 @@
    - under "Integration Type", select `Guild Install`
       - this will install the app to a guild instead of your own user, besides: the app only has commands with `Guild Install` installation contexts!
    - you can then copy the url under "Generated URL" and open it in your browser or in the discord client to install the app to your server(s)
-14. celebrate
+15. celebrate
    - congratulations! your app should be running now~
 
 
@@ -120,11 +128,3 @@
 - usage of the [`Jenkinsfile`](../Jenkinsfile) is completely optional and can be deleted if not needed
 - for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys
-- you'll need to upload some emojis for the app to use too
-   - download the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
-   - then, go to the [discord developer dashboard](https://discord.com/developers/applications) and navigate to your app's emoji tab
-   - upload all the files from the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and rename the emojis you upload to the filename of the image
-   - with the way my helper package [@magicalbunny31/pawesome-utility-stuffs](https://github.com/magicalbunny31/pawesome-utility-stuffs), works the app's own emojis are bound to `Client#allEmojis` (you may even notice the references to this!) using the package's [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function
-      - it works by fetching all emojis uploaded to the app and adding them to an object with the key as the name of the emoji and its value as the markdown for the emoji
-      - the [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function also includes other custom emojis that exist in my own private servers - attempting to use these emojis may not work as your app won't exist in my private servers
-         - note that the app's own emojis take precedence over the emojis from my private servers should there be a naming conflict with any extra emojis you decide to upload
