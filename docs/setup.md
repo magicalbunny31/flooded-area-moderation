@@ -19,23 +19,23 @@
 
 ## 📋 the actual instructions
 
-1. `install your environment`
+1. install your environment
    - have [node.js](https://nodejs.org) >22.12.0 (and a recent release of [npm](https://www.npmjs.com/)) installed
-2. `clone the repository`
+2. clone the repository
    - got [`git`](https://git-scm.com/) installed? open your terminal in a folder and run `git clone https://github.com/magicalbunny31/flooded-area-moderation.git`
    - for more help, see [github's docs for help on how to clone a repository](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository)
-3. `disable @magicalbunny31/fennec-utilities functionality`
+3. disable [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities) functionality
    - [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities) is my own development package for my apps
       - you may start getting errors logged in your console saying "`🚫 FennecClient.initialise() not run yet`", however these are safe to ignore
       - *for more information, please see [nuzzles.dev/dev/fennec](https://nuzzles.dev/dev/fennec)*
    - open [`./src/index.js`](../src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
    - delete this line or comment out this line by prepending `//` to it
-4. `environment variables`
+4. environment variables
    - we'll set up the `.env` file now so that you can insert values into it as you continue along the further steps~
    - rename the [`/src/.env.sample`](../src/.env.sample) file to `.env`
    - further steps will reference this file as the `.env` file to input values in
    - once you finish following all steps, if there are any keys you didn't input values in (for example: if you don't input [google cloud firestore](https://cloud.google.com/firestore) api keys because you're using [node.js native sqlite](https://nodejs.org/api/sqlite.html) in step 4) then it is safe to leave these keys empty or even delete these keys from the `.env` file
-5. `set-up the database`
+5. set-up the database
    - the app supports two database structures: [google cloud firestore](https://cloud.google.com/firestore) and [node.js native sqlite](https://nodejs.org/api/sqlite.html)
    - whilst [google cloud firestore](https://cloud.google.com/firestore) more complex to configure, it can be easier to manage
       - for instructions on setting up [google cloud firestore](https://cloud.google.com/firestore), see **[the docs here](./setup-firestore.md)**
@@ -76,7 +76,7 @@
    - replace any occurrences of `<GUILD_ID>` in the keys (with `LOGS_WEBHOOK_URL_` prefixes) with webhook urls created in the channel of where to post the moderation log embed for player moderations (in the guild where the commands are ran in)
       - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
    - for help on how to create webhooks in a discord channel, see [discord's help centre article on intro to webhooks](https://support.discord.com/hc/articles/228383668)
-9. `configuration files`
+9. configuration files
    - these files are kinda like environment variables, however they aren't important enough to stay hidden
    - edit the list which is `export default` in [`/src/data/config.js`](../src/data/config.js):
       - one discord guild can only link to one roblox experience - there will be limited support for allowing multiple relationships between multiple discord guilds or roblox experiences
@@ -87,10 +87,10 @@
       - some variables are taken from the from [`./package.json`](../package.json): you should edit the `name`, `version`, and `homepage` keys inside that file and replace them with your own values
       - you'll also need to change the value of the `email` variable, or remove it from the `User-Agent` string
       - for any other changes to the `User-Agent` string, you can directly edit the string~
-10. `dependencies`
+10. dependencies
    - open the command line inside the repository's main directory
    - run the command `npm install`
-11. `start the app`
+11. start the app
    - prefer using [`pm2`](https://pm2.io/)?
       - run the command `npm start`
       - *for more information on how to configure [`pm2`](https://pm2.io/) to your liking, see [pm2.io/docs/plus/overview](https://pm2.io/docs/plus/overview/)*
