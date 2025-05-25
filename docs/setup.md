@@ -76,9 +76,13 @@
    - replace any occurrences of `<GUILD_ID>` in the keys (with `LOGS_WEBHOOK_URL_` prefixes) with webhook urls created in the channel of where to post the moderation log embed for player moderations (in the guild where the commands are ran in)
       - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
    - for help on how to create webhooks in a discord channel, see [discord's help centre article on intro to webhooks](https://support.discord.com/hc/articles/228383668)
-9. get your discord app's bot token from the [discord developer dashboard](https://discord.com/developers/applications) to your `.env` file
-   - insert it into the value of `TOKEN` near the top of the file
-   - for help on where to find your discord app's bot token, see [discord.js' guide on setting up an application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+9. update your discord app from the [discord developer dashboard](https://discord.com/developers/applications) for your app
+   - under the "Bot" tab, get your discord app's bot token from the [discord developer dashboard](https://discord.com/developers/applications) to your `.env` file
+      - insert it into the value of `TOKEN` near the top of the file
+      - for help on where to find your discord app's bot token, see [discord.js' guide on setting up an application](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+   - under the "Bot" tab, enable the following privileged gateway intents for the app to function:
+      - "Server Members Intent"
+      - "Message Content Intent"
 10. configuration files
    - these files are kinda like environment variables, however they aren't important enough to stay hidden
    - edit the list which is `export default` in [`/src/data/config.js`](../src/data/config.js):
