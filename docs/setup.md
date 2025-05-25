@@ -103,5 +103,5 @@
 ## 🛠️ advanced usage
 
 - usage of the [`Jenkinsfile`](../Jenkinsfile) is completely optional and can be deleted if not needed
-- for steps 5, 6, 7, or 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
+- for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys
