@@ -283,7 +283,7 @@ export default class Commands {
                            commands
                               .filter(command => command.commandName === `moderate-players`)
                               .map(command => Discord.bold(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}${command.action}`)),
-                           `The total number of moderated users per command message must be 10 or few players`
+                           `The total number of moderated users per command message has a maximum limit of 10 players`
                         ])
                      ]
                         .join(`\n`)
