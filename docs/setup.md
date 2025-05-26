@@ -28,8 +28,11 @@
    - [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities) is my own development package for my apps
       - you may start getting errors logged in your console saying "`🚫 FennecClient.initialise() not run yet`", however these are safe to ignore
       - *for more information, please see [nuzzles.dev/dev/fennec](https://nuzzles.dev/dev/fennec)*
-   - open [`./src/index.js`](../src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
+   - open [`/src/index.js`](../src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
    - delete this line or comment out this line by prepending `//` to it
+- next, delete the file [`/src/events/messageCreate_developer-commands.js`](../src/events/messageCreate_developer-commands.js)
+      - this file gives the users defined in [`/src/data/developers.js`](../src/data/developers.js) access to [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities)'s developer commands
+      - ..it really gives the main developer of this app, [magicalbunny31](https://nuzzles.dev), the ability to run developer commands on the app - the user experience won't be affected and the security of your system won't be affected either! though, it is still good practice to delete this file just in case either developer accounts are compromised and exist in your discord guilds
 4. environment variables
    - we'll set up the `.env` file now so that you can insert values into it as you continue along the further steps~
    - rename the [`/src/.env.sample`](../src/.env.sample) file to `.env`
