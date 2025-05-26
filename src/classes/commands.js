@@ -1,3 +1,4 @@
+import config from "../data/config.js";
 import { prefix, commands } from "../data/message-commands.js";
 
 import Discord from "discord.js";
@@ -97,6 +98,13 @@ export default class Commands {
    };
 
 
+   #getAccentColour() {
+      return config
+         .find(config => config.discord.guildId === this.#interactionOrMessage.guildId)
+         .discord.accentColour;
+   };
+
+
    async #getEmbeds() {
       const applicationCommands = await this.#getApplicationCommands();
 
@@ -104,7 +112,7 @@ export default class Commands {
          case `chat-input application commands`:
             return [
                new Discord.EmbedBuilder()
-                  .setColor(colours.flooded_area_moderation)
+                  .setColor(this.#getAccentColour())
                   .setDescription(
                      [
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.slash_command} ${Discord.chatInputApplicationCommandMention(`commands`, applicationCommands[`commands`])}`, Discord.HeadingLevel.Three),
@@ -157,7 +165,7 @@ export default class Commands {
          case `text-based commands`:
             return [
                new Discord.EmbedBuilder()
-                  .setColor(colours.flooded_area_moderation)
+                  .setColor(this.#getAccentColour())
                   .setDescription(
                      [
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}commands`, Discord.HeadingLevel.Three),
@@ -208,7 +216,7 @@ export default class Commands {
 
             return [
                new Discord.EmbedBuilder()
-                  .setColor(colours.flooded_area_moderation)
+                  .setColor(this.#getAccentColour())
                   .setDescription(
                      [
                         Discord.heading(`${prefix}${Discord.inlineCode(`<command>`)}`, Discord.HeadingLevel.Three),
@@ -243,7 +251,7 @@ export default class Commands {
 
             return [
                new Discord.EmbedBuilder()
-                  .setColor(colours.flooded_area_moderation)
+                  .setColor(this.#getAccentColour())
                   .setDescription(
                      Discord.heading(`${this.#interactionOrMessage.client.allEmojis.forum_channel} Aliases for ${prefix}${command.action ?? command.commandName}`, Discord.HeadingLevel.Three)
                   )
@@ -267,7 +275,7 @@ export default class Commands {
 
             return [
                new Discord.EmbedBuilder()
-                  .setColor(colours.flooded_area_moderation)
+                  .setColor(this.#getAccentColour())
                   .setDescription(
                      [
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.copy_message_link} Multiple commands can be run at once by putting each command on a new line`, Discord.HeadingLevel.Three),

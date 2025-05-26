@@ -144,13 +144,14 @@ const [ globalCommands, guildCommands ] = partition(
 );
 
 const globalCommandsData  = globalCommands.map(command => command.data);
-const guildCommandsGuilds = set(guildCommands.flatMap(command => command.guilds));
+const guildCommandsGuilds = set(guildCommands.map(command => JSON.stringify(command.guilds)))
+   .flatMap(string => JSON.parse(string));
 
-for (const guildId of guildCommandsGuilds)
+for (const [ guildId, experienceName ] of guildCommandsGuilds)
    await client.application.commands.set(
       guildCommands
-         .filter(command => command.guilds.includes(guildId))
-         .map(command => command.data),
+         .filter(command => command.guilds.some(([ commandGuildId ]) => commandGuildId === guildId))
+         .map(command => command.getData(experienceName)),
       guildId
    );
 

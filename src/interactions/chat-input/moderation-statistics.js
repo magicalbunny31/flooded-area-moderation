@@ -4,11 +4,11 @@ import config from "../../data/config.js";
 import Discord from "discord.js";
 
 
-export const guilds = config.map(config => config.discord.guildId);
+export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);
 
-export const data = new Discord.SlashCommandBuilder()
+export const getData = experienceName => new Discord.SlashCommandBuilder()
    .setName(`moderation-statistics`)
-   .setDescription(`View statistics on the players you've moderated in Flooded Area`)
+   .setDescription(`View statistics on the players you've moderated in ${experienceName}`)
    .setDefaultMemberPermissions(Discord.PermissionFlagsBits.ManageGuild);
 
 

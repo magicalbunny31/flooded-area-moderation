@@ -8,7 +8,8 @@ import { FennecClient } from "@magicalbunny31/fennec-utilities";
 
 
 interface ApplicationCommandData {
-   data: Discord.ApplicationCommandData;
+   guilds: [ string, string ][];
+   getData: (experienceName?: string) => Discord.ApplicationCommandData;
 };
 
 interface AutocompleteCommandData extends Omit<ApplicationCommandData, "data" | "default"> {

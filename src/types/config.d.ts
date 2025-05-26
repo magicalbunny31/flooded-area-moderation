@@ -1,5 +1,9 @@
+import { ColorResolvable } from "discord.js"
+
+
 type Entry = {
    discord: {
+      accentColour: ColorResolvable; // 🎨 hex colour to set for the container accent colours - easiest to be set as a hex value (0xffffff or "#ffffff") but can be any valid Discord.ColorResolvable value
       apiKey?: { // 🌫️ if this object is empty (due to not specifying the `bloxlink` key below, this can be omitted)
          bloxlink?: string; // 🔑 the bloxlink api key for the discord guild (optional)
       },
@@ -17,8 +21,9 @@ type Entry = {
          cloud: string; // 🔑 the roblox open cloud api key for this roblox experience
       };
       experience: {
-         universeId: number | string; // 🆔 the universe id of the roblox experience
+         name: string; // 🏷️ the name of the experience
          placeId: number | string; // 🆔 the place id of the roblox experience
+         universeId: number | string; // 🆔 the universe id of the roblox experience
       };
    };
 };

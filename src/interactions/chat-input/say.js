@@ -3,9 +3,9 @@ import config from "../../data/config.js";
 import Discord from "discord.js";
 
 
-export const guilds = config.map(config => config.discord.guildId);
+export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);
 
-export const data = new Discord.SlashCommandBuilder()
+export const getData = () => new Discord.SlashCommandBuilder()
    .setName(`say`)
    .setDescription(`Make the app's bot user send a message in the channel`)
    .addStringOption(

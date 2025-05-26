@@ -1,3 +1,4 @@
+import config from "../data/config.js";
 import { getModerationHistory } from "../data/database.js";
 import { bloxlink, legacy } from "../data/roblox.js";
 
@@ -115,6 +116,13 @@ export default class ModerationsStatistics {
    };
 
 
+   #getAccentColour() {
+      return config
+         .find(config => config.discord.guildId === this.#interactionOrMessage.guildId)
+         .discord.accentColour;
+   };
+
+
    /**
     * @param {[ import("@flooded-area-moderation-types/moderations").Action, number ][]} moderatedPlayersRoblox
     * @param {[ import("@flooded-area-moderation-types/moderations").Action, number ][]} moderatedPlayersDiscord
@@ -125,7 +133,7 @@ export default class ModerationsStatistics {
       const topModerated = this.#getTopModerated(moderatedPlayers.map(([ _action, playerId ]) => playerId));
 
       return new Discord.EmbedBuilder()
-         .setColor(colours.flooded_area_moderation)
+         .setColor(this.#getAccentColour())
          .setAuthor({
             name: `${this.#commandUser.displayName} (@${this.#commandUser.username})`,
             iconURL: this.#commandUser.avatarURL({ extension: `webp`, size: 4096 })

@@ -1,3 +1,5 @@
+import { colours } from "@magicalbunny31/pawesome-utility-stuffs";
+
 import dotenvKey from "./dotenv-key.js";
 import dotenv from "dotenv";
 dotenv.config({ DOTENV_KEY: dotenvKey, path: `./src/.env` });
@@ -18,6 +20,7 @@ export const isFirestore = true;
 export default [{
    // flooded area community ↔️ flooded area
    discord: {
+      accentColour: colours.flooded_area_moderation,
       apiKey: {
          bloxlink: process.env.BLOXLINK_SERVER_KEY_977254354589462618
       },
@@ -35,13 +38,15 @@ export default [{
          cloud: process.env.ROBLOX_OPEN_CLOUD_API_KEY_1338193767
       },
       experience: {
-         universeId: 1338193767,
-         placeId: 3976767347
+         name: `Flooded Area`,
+         placeId: 3976767347,
+         universeId: 1338193767
       }
    }
 }, {
    // bun testers ↔️ tail test
    discord: {
+      accentColour: colours.bunny_pink,
       guildId: `859172731386986516`,
       logs: {
          channelId: `1306776370592088076`,
@@ -56,8 +61,9 @@ export default [{
          cloud: process.env.ROBLOX_OPEN_CLOUD_API_KEY_6606412610
       },
       experience: {
-         universeId: 6606412610,
-         placeId: 106827034557144
+         name: `tail test`,
+         placeId: 106827034557144,
+         universeId: 6606412610
       }
    }
 }];

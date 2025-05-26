@@ -4,12 +4,12 @@ import { content } from "../../data/defaults.js";
 import Discord from "discord.js";
 
 
-export const guilds = config.map(config => config.discord.guildId);
+export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);
 
-export const data = (() => {
+export const getData = experienceName => {
    const data = new Discord.SlashCommandBuilder()
       .setName(`mass-unban`)
-      .setDescription(`Revoke multiple players' bans from Flooded Area`)
+      .setDescription(`Revoke multiple players' bans from ${experienceName}`)
       .addStringOption(
          new Discord.SlashCommandStringOption()
             .setName(`player`)
@@ -41,7 +41,7 @@ export const data = (() => {
       );
 
    return data;
-})();
+};
 
 
 /**

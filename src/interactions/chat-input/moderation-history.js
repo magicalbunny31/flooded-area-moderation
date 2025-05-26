@@ -6,11 +6,11 @@ import { legacy } from "../../data/roblox.js";
 import Discord from "discord.js";
 
 
-export const guilds = config.map(config => config.discord.guildId);
+export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);
 
-export const data = new Discord.SlashCommandBuilder()
+export const getData = experienceName => new Discord.SlashCommandBuilder()
    .setName(`moderation-history`)
-   .setDescription(`View a player's moderation history in Flooded Area`)
+   .setDescription(`View a player's moderation history in ${experienceName}`)
    .addStringOption(
       new Discord.SlashCommandStringOption()
          .setName(`player`)

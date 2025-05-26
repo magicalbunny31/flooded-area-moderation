@@ -5,11 +5,11 @@ import { content, modal, defaultBanReason } from "../../data/defaults.js";
 import Discord from "discord.js";
 
 
-export const guilds = config.map(config => config.discord.guildId);
+export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);
 
-export const data = new Discord.SlashCommandBuilder()
+export const getData = experienceName => new Discord.SlashCommandBuilder()
    .setName(`ban`)
-   .setDescription(`Permanently ban a player from Flooded Area`)
+   .setDescription(`Permanently ban a player from ${experienceName}`)
    .addStringOption(
       new Discord.SlashCommandStringOption()
          .setName(`player`)

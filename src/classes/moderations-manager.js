@@ -117,13 +117,23 @@ export default class ModerationsManager {
 
 
    /**
+    * @param {Discord.Snowflake} guildId
+    */
+   #getAccentColour(guildId) {
+      return config
+         .find(config => config.discord.guildId === guildId)
+         .discord.accentColour;
+   };
+
+
+   /**
     * @param {import("@flooded-area-moderation-types/moderations").ProcessedModerationData} processedModeration
     */
    async #formatPostModerationErrorBotEmbed(processedModeration) {
       const baseEmbed = await this.formatPreModerationBotEmbed(processedModeration.message.guildId, processedModeration);
 
       return baseEmbed
-         .setColor(colours.flooded_area_moderation)
+         .setColor(this.#getAccentColour(processedModeration.message.guildId))
          .setDescription(
             [
                Discord.heading(`${this.#client.allEmojis.error} Failed to moderate player`, Discord.HeadingLevel.Three),
@@ -234,7 +244,7 @@ export default class ModerationsManager {
       const baseEmbed = await this.formatPreModerationBotEmbed(processedModeration.message.guildId, processedModeration);
 
       return baseEmbed
-         .setColor(colours.flooded_area_moderation)
+         .setColor(this.#getAccentColour(processedModeration.message.guildId))
          .setDescription(
             [
                Discord.heading(`${this.#client.allEmojis.error} Player isn't banned`, Discord.HeadingLevel.Three),
@@ -273,7 +283,7 @@ export default class ModerationsManager {
       const commands = await this.#getApplicationCommands(processedModeration);
 
       return baseEmbed
-         .setColor(colours.flooded_area_moderation)
+         .setColor(this.#getAccentColour(processedModeration.message.guildId))
          .setDescription(
             [
                Discord.heading(`${embedDescription}; failed to add to their moderation history`, Discord.HeadingLevel.Three),
@@ -701,9 +711,11 @@ export default class ModerationsManager {
                      ? `Linked Bloxlink Account`
                      : `Linked Bloxlink Accounts`,
                   value: Discord.quote(
-                     memberIds.map(memberId =>
-                        Discord.userMention(memberId)
-                     )
+                     memberIds
+                        .map(memberId =>
+                           Discord.userMention(memberId)
+                        )
+                        .join(`, `)
                   ),
                   inline: true
                }]
@@ -854,7 +866,7 @@ export default class ModerationsManager {
       const applicationCommands = await this.getApplicationCommands(guildId);
 
       return new Discord.EmbedBuilder()
-         .setColor(colours.flooded_area_moderation)
+         .setColor(this.#getAccentColour(guildId))
          .setDescription(
             this.#getPreModerationErrorBotEmbedDescription(processedModeration, applicationCommands)
          );

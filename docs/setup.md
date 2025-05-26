@@ -15,6 +15,7 @@
    - if your discord guild doesn't match the **private instance examples**, please remove or replace all branding! this includes but is not limited to:
       - any references to [Flooded Area](https://www.roblox.com/games/3976767347/Flooded-Area) (excluding variable names)
       - the embed colours (aka: container accent colours) of the app, seen in the code as [`colours.flooded_area_moderation`](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/data/colours.js#L30) or hex colour `#bc1922`
+   - the instructions below will guide you with replacing branding for the app
 
 
 ## 📋 the actual instructions
@@ -30,7 +31,7 @@
       - *for more information, please see [nuzzles.dev/dev/fennec](https://nuzzles.dev/dev/fennec)*
    - open [`/src/index.js`](../src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
    - delete this line or comment out this line by prepending `//` to it
-- next, delete the file [`/src/events/messageCreate_developer-commands.js`](../src/events/messageCreate_developer-commands.js)
+   - next, delete the file [`/src/events/messageCreate_developer-commands.js`](../src/events/messageCreate_developer-commands.js)
       - this file gives the users defined in [`/src/data/developers.js`](../src/data/developers.js) access to [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities)'s developer commands
       - ..it really gives the main developer of this app, [magicalbunny31](https://nuzzles.dev), the ability to run developer commands on the app - the user experience won't be affected and the security of your system won't be affected either! though, it is still good practice to delete this file just in case either developer accounts are compromised and exist in your discord guilds
 4. environment variables
@@ -94,9 +95,10 @@
    - edit the string in [`/src/data/user-agent.js`](../src/data/user-agent.js):
       - the default export for this file returns a formatted `User-Agent` string for http requests (to apis)
          - here's an example of what the string looks like: `flooded-area-moderation/3.2.0 (Node.js/22.12.0; Linux 6.8.0-1024-raspi; arm64; +https://nuzzles.dev/dev/flooded-area-moderation; contact:xxxxx@example.com)`
-      - some variables are taken from the from [`./package.json`](../package.json): you should edit the `name`, `version`, and `homepage` keys inside that file and replace them with your own values
       - you'll also need to change the value of the `email` variable, or remove it from the `User-Agent` string
       - for any other changes to the `User-Agent` string, you can directly edit the string~
+   - edit the `name` (and `homepage` if required) keys in [`/package.json`](../package.json):
+      - these values are used in various places across the app, like its `User-Agent` or in [`/src/data/defaults.js`](../src/data/defaults.js)
 11. upload some emojis for the app to use
    - download the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
    - then, go to the [discord developer dashboard](https://discord.com/developers/applications) and navigate to your app's emoji tab

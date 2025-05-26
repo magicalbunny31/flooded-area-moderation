@@ -1,4 +1,9 @@
+import fs from "node:fs/promises";
 import Discord from "discord.js";
+
+
+const pkgPath = `./package.json`;
+const pkg = JSON.parse(await fs.readFile(pkgPath));
 
 
 export const content = {
@@ -19,7 +24,7 @@ export const content = {
 };
 
 
-const modalPrivateReasonAttribution = user => `\n\nModerated by @${user.username} (${user.id}) via "flooded area moderation" Discord app`;
+const modalPrivateReasonAttribution = user => `\n\nModerated by @${user.username} (${user.id}) via "${pkg.name}" Discord app`;
 
 const banBaseModal = (commandDataId, user, plural) => new Discord.ModalBuilder()
    .setCustomId(`moderate-players:${commandDataId}`)
