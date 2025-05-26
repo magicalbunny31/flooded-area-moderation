@@ -11,14 +11,25 @@ this is pretty complex! let me hold your paw as we set it up together~
    - which location you wanna create your database in is up to you - it doesn't really matter but just remember that you can't change it after creating the database
    - you must name the `databaseId` in [`/src/index.js`](../src/index.js#L85) (line 85) the same as the "Database ID" for this newly created database
       - if you've named the "Database ID" "`(default)`" (aka: leaving that field blank), you can omit the `databaseId` property in [`/src/index.js`](../src/index.js#L85) (line 85)
-3. [create a service account for your google cloud project](https://cloud.google.com/iam/docs/service-accounts-create) if you haven't already
+3. create an index for a collection group
+   - this is so moderation statistics can work!
+   - when viewing your database, on the right side of your screen go to "Indexes"
+   - select the "SINGLE FIELD" tab
+   - scroll down to "Exemptions" and click "ADD EXEMPTION"
+      - for "Collection ID", input "`moderation-history`"
+      - for "Field path", input "`moderator`"
+      - under "Query Scope", select "Collection group"
+   - select "NEXT"
+   - set indexes "ASCENDING" collection group scope to enabled and leave everything else disabled
+   - select "SAVE" to save the index
+4. [create a service account for your google cloud project](https://cloud.google.com/iam/docs/service-accounts-create) if you haven't already
    - when granting the service account permissions, give it "Cloud Datastore User" so that it is able to access the database
-4. click on your newly created service account and go on the "KEYS" tab
+5. click on your newly created service account and go on the "KEYS" tab
    - under "ADD KEY", select "Create new key"
    - a json file will be downloaded to your device!
    - open the json file: you'll need it for step 5 below
-5. input values into your `.env` file
+6. input values into your `.env` file
    - `GCP_PROJECT_ID`: the `project_id`'s value in the downloaded json file from step 4
    - `GCP_CLIENT_EMAIL`: the `client_email`'s value in the downloaded json file from step 4
    - `GCP_PRIVATE_KEY`: the `private_key`'s value in the downloaded json file from step 4
-6. [return back to `setup.md` and continue from step 6 there](./setup.md)
+7. [return back to `setup.md` and continue from step 6 there](./setup.md)
