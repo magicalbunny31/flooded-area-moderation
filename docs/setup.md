@@ -116,12 +116,12 @@
       - run the command `npm run dev`
 14. install the app to your discord server(s)
    - from the [discord developer dashboard](https://discord.com/developers/applications) for your app, go to the "OAuth2" tab and scroll down to the "OAuth2 URL Generator"
-   - under "Scopes", select `bot`
-   - under "Bot Permissions", selecting any permissions will create a role that is managed by the integration
+   - under "SCOPES", select `bot`
+   - under "BOT PERMISSIONS", selecting any permissions will create a role that is managed by the integration
       - the easiest way out to ensure the app works everywhere is to select `Administrator`, though if you're worried about potential security issues then consider selecting safer permissions and/or give the app inside the guild sufficient permissions
-   - under "Integration Type", select `Guild Install`
+   - under "INTEGRATION TYPE", select `Guild Install`
       - this will install the app to a guild instead of your own user, besides: the app only has commands with `Guild Install` installation contexts!
-   - you can then copy the url under "Generated URL" and open it in your browser or in the discord client to install the app to your server(s)
+   - you can then copy the url under "GENERATED URL" and open it in your browser or in the discord client to install the app to your server(s)
 15. celebrate
    - congratulations! your app should be running now~
 
