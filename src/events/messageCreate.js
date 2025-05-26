@@ -44,7 +44,7 @@ export default async message => {
 
 
    // this command has multiple lines and could possibly be chaining/bulk commands: only applies to moderation commands
-   const commandContents = message.content.split(/[\r\n]+/g);
+   const commandContents = commandContent.split(/[\r\n]+/g);
 
    if (commandContents.length > 1) {
       // get this message command's file
@@ -67,7 +67,7 @@ export default async message => {
 
    // get this message command's file
    const [ _, matchedPrefix ] = commandContent.match(prefixRegexp);
-   const [ commandName, ...args ] = message.content.slice(matchedPrefix.length).trim().split(/\s+/);
+   const [ commandName, ...args ] = commandContent.slice(matchedPrefix.length).trim().split(/\s+/);
 
    const command = commands.find(command => command.acceptedNames.includes(commandName));
 
