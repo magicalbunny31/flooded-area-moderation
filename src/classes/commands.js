@@ -112,27 +112,27 @@ export default class Commands {
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to ban`,
                            `${Discord.bold(Discord.inlineCode(`ban-alt-accounts`))}: Whether to also ban Roblox accounts suspected to belong to the player, controlled by Roblox (default: ${Discord.inlineCode(`true`)})`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the banned player, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.slash_command} ${Discord.chatInputApplicationCommandMention(`mass-ban`, applicationCommands[`mass-ban`])} ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`player-2`))} (${Discord.inlineCode(`ban-alt-accounts`)}) (${Discord.inlineCode(`public-ban-reason`)}) (${Discord.inlineCode(`player-3`)} ...)`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to ban`,
                            `${Discord.bold(Discord.inlineCode(`ban-alt-accounts`))}: Whether to also ban Roblox accounts suspected to belong to the player, controlled by Roblox (default: ${Discord.inlineCode(`true`)})`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the banned players, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.slash_command} ${Discord.chatInputApplicationCommandMention(`temp-ban`, applicationCommands[`temp-ban`])} ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`duration`))} (${Discord.inlineCode(`ban-alt-accounts`)}) (${Discord.inlineCode(`public-ban-reason`)})`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to temporarily ban`,
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`duration`)))}: How long to ban this player for, valid durations are the time in seconds (${Discord.inlineCode(`86400`)} = 1 day) or as number/duration pairs (${Discord.inlineCode(`1w2d3h4m5s`)} = 1 week, 2 days, 3 hours, 4 minutes, 5 seconds)`,
                            `${Discord.bold(Discord.inlineCode(`ban-alt-accounts`))}: Whether to also ban Roblox accounts suspected to belong to the player, controlled by Roblox (default: ${Discord.inlineCode(`true`)})`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned player, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.slash_command} ${Discord.chatInputApplicationCommandMention(`mass-temp-ban`, applicationCommands[`mass-temp-ban`])} ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`player-2`))} ${Discord.underline(Discord.inlineCode(`duration`))} (${Discord.inlineCode(`ban-alt-accounts`)}) (${Discord.inlineCode(`public-ban-reason`)}) (${Discord.inlineCode(`player-3`)} ...)`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to temporarily ban`,
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`duration`)))}: How long to ban this player for, valid durations are the time in seconds (${Discord.inlineCode(`86400`)} = 1 day) or as number/duration pairs (${Discord.inlineCode(`1w2d3h4m5s`)} = 1 week, 2 days, 3 hours, 4 minutes, 5 seconds)`,
                            `${Discord.bold(Discord.inlineCode(`ban-alt-accounts`))}: Whether to also ban Roblox accounts suspected to belong to the player, controlled by Roblox (default: ${Discord.inlineCode(`true`)})`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned players, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.slash_command} ${Discord.chatInputApplicationCommandMention(`unban`, applicationCommands[`unban`])} ${Discord.underline(Discord.inlineCode(`player`))}`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
@@ -164,25 +164,24 @@ export default class Commands {
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}ban ${Discord.underline(Discord.inlineCode(`player`))} (${Discord.inlineCode(`public-ban-reason`)})`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to ban`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the banned player, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}mass-ban ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`player-2`))} ..., (${Discord.inlineCode(`public-ban-reason`)})`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to ban, add up to 10 players then add a "," to start the next arguments`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the banned player, must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the banned players, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}temp-ban ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`duration`))} (${Discord.inlineCode(`public-ban-reason`)})`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to temporarily ban`,
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`duration`)))}: How long to ban this player for, valid durations are the time in seconds (${Discord.inlineCode(`86400`)} = 1 day) or as number/duration pairs (${Discord.inlineCode(`1w2d3h4m5s`)} = 1 week, 2 days, 3 hours, 4 minutes, 5 seconds)`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned player: this must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the temporarily banned player, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}mass-temp-ban ${Discord.underline(Discord.inlineCode(`player`))} ${Discord.underline(Discord.inlineCode(`player-2`))} ..., ${Discord.underline(Discord.inlineCode(`duration`))} (${Discord.inlineCode(`public-ban-reason`)})`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`player`)))}: Roblox username or player id to temporarily ban`,
                            `${Discord.underline(Discord.bold(Discord.inlineCode(`duration`)))}: How long to ban this player for, valid durations are the time in seconds (${Discord.inlineCode(`86400`)} = 1 day) or as number/duration pairs (${Discord.inlineCode(`1w2d3h4m5s`)} = 1 week, 2 days, 3 hours, 4 minutes, 5 seconds)`,
-                           `${Discord.bold(Discord.inlineCode(`ban-alt-accounts`))}: Whether to also ban Roblox accounts suspected to belong to the player, controlled by Roblox (default: ${Discord.inlineCode(`true`)})`,
-                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: If specified, skip the reason modal and display this reason to the temporarily banned player: this must follow ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
+                           `${Discord.bold(Discord.inlineCode(`public-ban-reason`))}: Display this reason to the temporarily banned players, must abide by ${Discord.hyperlink(`Roblox Community Standards`, `https://help.roblox.com/hc/articles/203313410-Roblox-Community-Standards`)}`
                         ]),
                         Discord.heading(`${this.#interactionOrMessage.client.allEmojis.message} ${prefix}unban ${Discord.underline(Discord.inlineCode(`player`))}`, Discord.HeadingLevel.Three),
                         Discord.unorderedList([
