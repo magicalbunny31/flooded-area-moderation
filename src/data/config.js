@@ -1,8 +1,7 @@
 import { colours } from "@magicalbunny31/pawesome-utility-stuffs";
 
-import dotenvKey from "./dotenv-key.js";
-import dotenv from "dotenv";
-dotenv.config({ DOTENV_KEY: dotenvKey, path: `./src/.env` });
+import dotenv from "@dotenvx/dotenvx";
+dotenv.config({ path: `./src/.env`, envKeysFile: `./src/.env.keys` });
 
 
 /**
