@@ -1,7 +1,7 @@
 pipeline {
    agent {
       node {
-         label "fox-1 apps"
+         label "fox-3w apps"
          customWorkspace "/home/apps/flooded-area-moderation"
       }
    }
@@ -10,7 +10,7 @@ pipeline {
       stage("build") {
          steps {
             echo "✨ building.."
-            sh "npm install --production"
+            sh "npm install --omit=dev"
          }
       }
       stage("start") {
