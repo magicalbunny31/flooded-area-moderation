@@ -111,11 +111,10 @@
    - open the command line inside the repository's main directory
    - run the command `npm install`
 13. start the app
-   - prefer using [`pm2`](https://pm2.io/)?
-      - run the command `npm start`
-      - *for more information on how to configure [`pm2`](https://pm2.io/) to your liking, see [pm2.io/docs/plus/overview](https://pm2.io/docs/plus/overview/)*
-   - just wanna start the app from the terminal instantly?
-      - run the command `npm run dev`
+   - run the command `npm start`
+   - consider using a process manager like [PM2](https://pm2.io/) or [Docker](https://www.docker.com/) for more features when running this app!
+      - (you'll be on your own when setting up  process manager for the app, though..)
+      - as you can see by the [`docker-compose.yml`](../docker-compose.yml) and [`Dockerfile`](../Dockerfile) in this repository, the main `flooded-area-moderation` app runs in [Docker](https://www.docker.com/)
 14. install the app to your discord server(s)
    - from the [discord developer dashboard](https://discord.com/developers/applications) for your app, go to the "OAuth2" tab and scroll down to the "OAuth2 URL Generator"
    - under "SCOPES", select `bot`
@@ -130,6 +129,6 @@
 
 ## 🛠️ advanced usage
 
-- usage of the [`Jenkinsfile`](../Jenkinsfile) is completely optional and can be deleted if not needed
+- usage of the [`Jenkinsfile`](../Jenkinsfile), [`docker-compose.yml`](../docker-compose.yml) and [`Dockerfile`](../Dockerfile) are completely optional and can be deleted if not needed
 - for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys

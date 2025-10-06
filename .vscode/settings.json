@@ -5,6 +5,7 @@
       "BLOXLINK_SERVER_KEY_",
       "checkmark",
       "cleanup",
+      "color",
       "env",
       "feelin",
       "getAvatarHeadshotByUserId",
@@ -67,6 +68,7 @@
       "tban",
       "tempb",
       "tempban",
+      "TZ",
       "uban",
       "unb"
    ]

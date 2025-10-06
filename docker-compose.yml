@@ -1,0 +1,18 @@
+services:
+  flooded-area-moderation:
+    container_name: flooded-area-moderation
+    command: npm start -- --color
+    build:
+      context: .
+    labels:
+      - "com.fennec.app_type=discord"
+      - "com.fennec.app_name=flooded-area-moderation"
+    volumes:
+      - /discord/flooded-area-moderation/node_modules
+    environment:
+      - TZ=Europe/London
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 2m
+        max_attempts: 3
