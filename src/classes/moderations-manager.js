@@ -6,7 +6,6 @@ import { prefix } from "../data/message-commands.js";
 import { bloxlink, legacy, cloud } from "../data/roblox.js";
 
 import Discord from "discord.js";
-import ping from "ping";
 import { setIntervalAsync, clearIntervalAsync } from "set-interval-async/fixed";
 import { respondToWrongUserMessageComponentInteraction } from "@magicalbunny31/pawesome-utility-stuffs";
 
