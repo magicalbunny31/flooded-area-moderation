@@ -8,7 +8,7 @@ import { bloxlink, legacy, cloud } from "../data/roblox.js";
 import Discord from "discord.js";
 import ping from "ping";
 import { setIntervalAsync, clearIntervalAsync } from "set-interval-async/fixed";
-import { colours, respondToWrongUserMessageComponentInteraction } from "@magicalbunny31/pawesome-utility-stuffs";
+import { respondToWrongUserMessageComponentInteraction } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
 export default class ModerationsManager {
@@ -44,18 +44,6 @@ export default class ModerationsManager {
       green:  0xaeff00,
       orange: 0xff9100,
       red:    0xff3c00
-   };
-
-
-   async #robloxIsOnline() {
-      try {
-         const hostname = `apis.roblox.com`;
-         const response = await ping.promise.probe(hostname);
-         return response.alive;
-
-      } catch (error) {
-         return false;
-      };
    };
 
 
@@ -137,7 +125,7 @@ export default class ModerationsManager {
          .setDescription(
             [
                Discord.heading(`${this.#client.allEmojis.error} Failed to moderate player`, Discord.HeadingLevel.Three),
-               `Try banning this player again.`
+               `Is ${Discord.bold(Discord.hyperlink(`Roblox having an outage`, Discord.hideLinkEmbed(`https://status.roblox.com`)))} right now? Try banning this player again later.`
             ]
                .join(`\n`)
          );
@@ -879,20 +867,6 @@ export default class ModerationsManager {
     * @param {import("@flooded-area-moderation-types/moderations").ModerationData[]} moderationData
     */
    async pushModerations(message, moderationData) {
-      // roblox is offline
-      if (!await this.#robloxIsOnline())
-         return await message.edit({
-            content: [
-               Discord.heading(`${this.#client.allEmojis.error} Cannot connect to Roblox`, Discord.HeadingLevel.Three),
-               `${Discord.bold(Discord.hyperlink(`Roblox may be having an outage`, Discord.hideLinkEmbed(`https://status.roblox.com`)))} right now: ${this.#client.user} is unable to moderate any players.`
-            ]
-               .join(`\n`),
-            allowedMentions: {
-               repliedUser: false
-            }
-         });
-
-
       // the moderator who ran this command
       const moderator = await this.#getModerator(message);
 
