@@ -22,7 +22,8 @@ const fennec = new FennecClient({
    useAnnouncement: false,
    useApplicationStatusApplicationStatisticsStatus: false,
    useBlacklist: false,
-   useOnlineStatus: false
+   useOnlineStatus: false,
+   useOnlineStatusUptimePush: false
 });
 await fennec.initialise();
 
