@@ -6,6 +6,7 @@
    "scripts": {
       "start": "node --experimental-sqlite ./src/index.js",
       "dev": "docker compose up --build --watch",
+      "lint": "eslint .",
       "docker:up": "docker compose up --build",
       "docker:down": "docker compose down --remove-orphans --rmi all --volumes",
       "dotenvx:precommit": "dotenvx ext precommit",
