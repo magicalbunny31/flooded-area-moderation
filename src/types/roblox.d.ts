@@ -280,6 +280,16 @@ export declare async function banUser<UniverseId extends number, PlayerId extend
 
 /**
  * cloud
+ * @see https://create.roblox.com/docs/cloud/reference/features/storage
+ */
+export declare async function revokeLegacyUserBan<UniverseId extends number, PlayerId extends number>(
+   universeId: UniverseId,
+   playerId: PlayerId
+): Promise<void>;
+
+
+/**
+ * cloud
  * @see https://create.roblox.com/docs/cloud/reference/UserRestriction#Update-User-Restriction
  */
 export declare async function revokeUserBan<UniverseId extends number, PlayerId extends number>(

@@ -68,7 +68,8 @@ export default class ModerationsManager {
          case `temp-ban`:
             return await cloud.banUser      (universeId, processedModeration.player.id, processedModeration.length, processedModeration.privateReason, processedModeration.displayReason, processedModeration.excludeAltAccounts);
          case `revoke-ban`:
-            return await cloud.revokeUserBan(universeId, processedModeration.player.id);
+            await        cloud.revokeLegacyUserBan(universeId, processedModeration.player.id);
+            return await cloud.revokeUserBan      (universeId, processedModeration.player.id);
       };
    };
 

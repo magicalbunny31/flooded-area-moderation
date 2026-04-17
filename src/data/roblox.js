@@ -63,6 +63,14 @@ const request = {
          "Content-Type": `application/json`
       },
       body: JSON.stringify(body)
+   }),
+
+   delete: async (url, requestHeaders) => await fetch(url, {
+      method: `DELETE`,
+      headers: {
+         ...headers,
+         ...requestHeaders
+      }
    })
 };
 
@@ -405,6 +413,28 @@ export const cloud = {
       if (response.ok) {
          const data = await response.json();
          return data;
+
+      } else {
+         await logError(response);
+      };
+   },
+
+
+   async revokeLegacyUserBan(universeId, playerId) {
+      const apiKey = this.getApiKey(universeId);
+      const requestUrl = `https://apis.roblox.com/cloud/v2/universes/${universeId}/data-stores/BANNED_DS_1/entries/${playerId}`;
+
+      const response = await request.get(requestUrl, {
+         "X-Api-Key": apiKey
+      });
+
+      if (response.status === 404) { // this player isn't banned in the legacy datastores
+         return;
+
+      } else if (response.ok) { // this player is banned in the legacy datastores, let's remove them from there
+         await request.delete(requestUrl, {
+            "X-Api-Key": apiKey
+         });
 
       } else {
          await logError(response);
