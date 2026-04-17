@@ -21,7 +21,7 @@
 ## 📋 the actual instructions
 
 1. install your environment
-   - have [node.js](https://nodejs.org) >22.12.0 (and a recent release of [npm](https://www.npmjs.com/)) installed
+   - have [node.js](https://nodejs.org) >24 installed
 2. clone the repository
    - got [`git`](https://git-scm.com/) installed? open your terminal in a folder and run `git clone https://github.com/magicalbunny31/flooded-area-moderation.git`
    - for more help, see [github's docs for help on how to clone a repository](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository)
@@ -107,15 +107,15 @@
       - it works by fetching all emojis uploaded to the app and adding them to an object with the key as the name of the emoji and its value as the markdown for the emoji
       - the [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function also includes other custom emojis that exist in my own private servers - attempting to use these emojis may not work as your app won't exist in my private servers
          - note that the app's own emojis take precedence over the emojis from my private servers should there be a naming conflict with any extra emojis you decide to upload
-12. dependencies
-   - open the command line inside the repository's main directory
-   - run the command `npm install`
-13. start the app
+12. start the app
    - run the command `npm start`
    - consider using a process manager like [PM2](https://pm2.io/) or [Docker](https://www.docker.com/) for more features when running this app!
       - (you'll be on your own when setting up  process manager for the app, though..)
-      - as you can see by the [`docker-compose.yml`](../docker-compose.yml) and [`Dockerfile`](../Dockerfile) in this repository, the main `flooded-area-moderation` app runs in [Docker](https://www.docker.com/)
-14. install the app to your discord server(s)
+      - note that if you decide to use a process manager, you might need to manually install dependencies first!
+         - this project uses [pnpm](https://pnpm.io/), so you'll need to use `pnpm install` to install dependencies
+         - if you prefer to use [npm]([pnpm](https://pnpm.io/)), delete the [`pnpm-lock.yaml`](../pnpm-lock.yaml) and [`pnpm-workspace.yaml`](../pnpm-workspace.yaml) files, then run `npm install` to install dependencies (however, you won't have the comfort of having the lock file and other project-specific configurations!)
+      - as you can see by the [`compose.yaml`](../compose.yaml) and [`Dockerfile`](../Dockerfile) in this repository, the main `flooded-area-moderation` app runs in [Docker](https://www.docker.com/)
+13. install the app to your discord server(s)
    - from the [discord developer dashboard](https://discord.com/developers/applications) for your app, go to the "OAuth2" tab and scroll down to the "OAuth2 URL Generator"
    - under "SCOPES", select `bot`
    - under "BOT PERMISSIONS", selecting any permissions will create a role that is managed by the integration
@@ -123,12 +123,12 @@
    - under "INTEGRATION TYPE", select `Guild Install`
       - this will install the app to a guild instead of your own user, besides: the app only has commands with `Guild Install` installation contexts!
    - you can then copy the url under "GENERATED URL" and open it in your browser or in the discord client to install the app to your server(s)
-15. celebrate
+14. celebrate
    - congratulations! your app should be running now~
 
 
 ## 🛠️ advanced usage
 
-- usage of the [`Jenkinsfile`](../Jenkinsfile), [`docker-compose.yml`](../docker-compose.yml) and [`Dockerfile`](../Dockerfile) are completely optional and can be deleted if not needed
+- usage of the [`Jenkinsfile`](../Jenkinsfile), [`compose.yaml`](../compose.yaml) and [`Dockerfile`](../Dockerfile) are completely optional and can be deleted if not needed
 - for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys

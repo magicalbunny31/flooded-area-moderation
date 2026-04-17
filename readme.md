@@ -35,5 +35,5 @@
 - please note that the [`license`](./license) only applies to **v3** (this branch) 
 
 
-## contributors 👥
+## 👥 contributors
 - 🦊 [@magicalbunny31](https://github.com/magicalbunny31) ([nuzzles.dev](https://nuzzles.dev))
