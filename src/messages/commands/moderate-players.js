@@ -107,7 +107,7 @@ export default async message => {
          // length is not valid or not within limits
          const minimumLength = 1;
          const maximumLength = 315_576_000_000;
-         if (length !== undefined && !(length > minimumLength && length < maximumLength)) {
+         if (length !== undefined && !(length >= minimumLength && length < maximumLength)) {
             moderationData.push({
                action,
                error: `invalid length`
@@ -171,7 +171,7 @@ export default async message => {
          // length is not valid or not within limits
          const minimumLength = 1;
          const maximumLength = 315_576_000_000;
-         if (length !== undefined && !(length > minimumLength && length < maximumLength)) {
+         if (length !== undefined && !(length >= minimumLength && length < maximumLength)) {
             moderationData.push({
                action,
                error: `invalid length`
