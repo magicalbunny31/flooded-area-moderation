@@ -1,5 +1,6 @@
 {
    "cSpell.words": [
+      "acc",
       "avatarHeadshotByUserId",
       "bloxlink",
       "BLOXLINK_SERVER_KEY_",
@@ -9,6 +10,7 @@
       "env",
       "feelin",
       "getAvatarHeadshotByUserId",
+      "gpgsign",
       "headshot",
       "headshots",
       "massb",

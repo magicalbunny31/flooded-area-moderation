@@ -490,14 +490,16 @@ export default class ModerationsManager {
     * @param {import("@flooded-area-moderation-types/client").Message} message
     * @return {Promise<string?>}
     */
-   #collectPrompt(message) {
+   async #collectPrompt(message) {
+      // the moderator who ran this command
+      const moderator = await this.#getModerator(message);
+
+
       // a Promise is used here to return data inside the interaction collector event handlers
-      return new Promise(async (resolve, reject) => {
+      return new Promise((resolve, reject) => {
 
 
          // the interaction collector
-         const moderator = await this.#getModerator(message);
-
          const interactionCollector = message.createMessageComponentCollector({
             componentType: Discord.ComponentType.StringSelect,
             filter: i => i.customId.startsWith(message.id),
