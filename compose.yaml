@@ -1,5 +1,3 @@
-name: flooded-area-moderation-dev
-
 services:
    flooded-area-moderation-discord:
       container_name: flooded-area-moderation-discord
