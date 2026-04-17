@@ -201,7 +201,7 @@ export default class ModerationsManager {
                      Discord.quote(`Private Reason: ${Discord.inlineCode(this.#getPostModerationLogEmbedReason(processedModeration.privateReason, true))}`)
                   ],
                ...processedModeration.action === `temp-ban`
-                  ? [ Discord.quote(`Duration: ${processedModeration.length} seconds`) ]
+                  ? [ Discord.quote(`Duration: ${processedModeration.length} ${processedModeration.length === 1 ? `second` : `seconds`}`) ]
                   : []
             ]
                .join(`\n`)
