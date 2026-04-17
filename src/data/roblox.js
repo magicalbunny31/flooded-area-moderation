@@ -445,15 +445,13 @@ export const cloud = {
    /**
     * @type {import("@flooded-area-moderation-types/roblox").revokeUserBan}
     */
-   async revokeUserBan(universeId, playerId, privateReason, displayReason) {
+   async revokeUserBan(universeId, playerId) {
       const apiKey = this.getApiKey(universeId);
 
       const response = await request.patch(`https://apis.roblox.com/cloud/v2/universes/${universeId}/user-restrictions/${playerId}`, {
          gameJoinRestriction: {
             active: false,
             startTime: new Date().toISOString(),
-            privateReason,
-            displayReason,
             excludeAltAccounts: false,
             inherited: true
          }
