@@ -2,7 +2,7 @@ import ModerationsHistory from "../../classes/moderations-history.js";
 import { content } from "../../data/defaults.js";
 import { legacy } from "../../data/roblox.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 
 
 /**

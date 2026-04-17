@@ -6,13 +6,17 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# 🗃️ git
+.gitconfig
+
 # 🗃️ databases
 *.db
 
 # 🔐 secrets
+DOTENV_KEY
 .env*
 .private*
-!.env
+!.env.project
 !.env.sample
 
 # 📜 logs

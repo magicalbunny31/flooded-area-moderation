@@ -47,7 +47,7 @@ for (const [ index, line ] of splash.split(/\r?\n/).entries())
 
 
 // the discord client
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 
 const client = new Discord.Client({
    partials: [
@@ -66,7 +66,7 @@ const client = new Discord.Client({
    }
 });
 
-await client.login(process.env.TOKEN);
+await client.login(process.env.DISCORD_TOKEN);
 
 
 // database
@@ -112,7 +112,7 @@ client.moderations = new ModerationsManager(client).start();
 
 
 // emojis
-import { emojis } from "@magicalbunny31/pawesome-utility-stuffs";
+import { emojis } from "@magicalbunny31/pawesome-utility-stuffs/discord";
 
 client.allEmojis = emojis(await client.application.emojis.fetch());
 

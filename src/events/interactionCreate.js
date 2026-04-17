@@ -1,7 +1,7 @@
 import config from "../data/config.js";
 
 import path from "node:path";
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import chalk from "chalk";
 import { colours } from "@magicalbunny31/pawesome-utility-stuffs";
 

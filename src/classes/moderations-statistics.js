@@ -2,9 +2,8 @@ import config from "../data/config.js";
 import { getModerationHistory } from "../data/database.js";
 import { bloxlink, legacy } from "../data/roblox.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import dayjs from "dayjs";
-import { colours } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
 export default class ModerationsStatistics {

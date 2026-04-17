@@ -1,6 +1,6 @@
 import developers from "../data/developers.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import { developerCommands } from "@magicalbunny31/fennec-utilities";
 
 

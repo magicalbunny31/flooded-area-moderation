@@ -24,8 +24,8 @@
 
 ## 🗃️ previous versions
 
-- 🏚️ ~~[v1](https://github.com/magicalbunny31/flooded-area-moderation/tree/v1)~~
-- 🏚️ ~~[v2](https://github.com/magicalbunny31/flooded-area-moderation/tree/v2)~~
+- 🏚️ ~~[v1](https://github.com/magicalbunny31/flooded-area-moderation/tree/release/v1)~~
+- 🏚️ ~~[v2](https://github.com/magicalbunny31/flooded-area-moderation/tree/release/v2)~~
 - 🏡 **v3** (this branch!)
 
 

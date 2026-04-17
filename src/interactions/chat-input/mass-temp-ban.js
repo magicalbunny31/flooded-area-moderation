@@ -2,7 +2,7 @@ import cache from "../../data/cache.js";
 import config from "../../data/config.js";
 import { content, modal, defaultBanReason } from "../../data/defaults.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 
 
 export const guilds = config.map(config => [ config.discord.guildId, config.roblox.experience.name ]);

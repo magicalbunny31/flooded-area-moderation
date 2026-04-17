@@ -1,11 +1,10 @@
-import fs from "node:fs/promises";
-import os from "node:os";
+import pkg from "../../package.json" with { type: "json" };
+
+import { userAgent } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
-const pkgPath = `./package.json`;
-const pkg = JSON.parse(await fs.readFile(pkgPath));
-
-const email = process.env.USER_AGENT_EMAIL;
+const [ _fluffleStack, floodedAreaModerationDiscord ] = pkg.name.split(`/`);
+const email = `hewwo@nuzzles.dev`;
 
 
-export default `${pkg.name}/${pkg.version} (Node.js/${process.versions.node}; ${os.type()} ${os.release()}; ${os.arch()}; +${pkg.homepage}; contact:${email})`;
+export default userAgent(floodedAreaModerationDiscord, pkg.version, pkg.homepage, email);

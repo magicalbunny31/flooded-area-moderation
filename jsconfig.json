@@ -1,7 +1,6 @@
 {
-   "exclude": [ "**/node_modules/" ],
+   "exclude": [ "node_modules" ],
    "compilerOptions": {
-      "baseUrl": "./",
       "paths": {
          "@flooded-area-moderation-types/*": [ "./src/types/*" ]
       }

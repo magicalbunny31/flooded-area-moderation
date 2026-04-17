@@ -1,0 +1,22 @@
+name: flooded-area-moderation-dev
+
+services:
+   flooded-area-moderation-discord:
+      container_name: flooded-area-moderation-discord
+      build:
+         context: .
+         dockerfile: ./Dockerfile
+      deploy:
+         restart_policy:
+            condition: on-failure
+            delay: 2m
+            max_attempts: 3
+      develop:
+         watch:
+            - path: ./
+              action: rebuild
+      environment:
+         TZ: Europe/London
+      labels:
+         com.fennec.app_type: discord
+         com.fennec.app_name: flooded-area-moderation

@@ -3,7 +3,7 @@ import { content, modal, defaultBanReason } from "../../data/defaults.js";
 import { toSeconds } from "../../data/format-duration.js";
 import { commands, prefix } from "../../data/message-commands.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import { set } from "@magicalbunny31/pawesome-utility-stuffs";
 
 

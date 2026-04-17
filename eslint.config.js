@@ -1,4 +1,4 @@
-import globals from "globals";
+import Globals from "globals";
 
 
 export default [{
@@ -8,8 +8,8 @@ export default [{
 
    languageOptions: {
       globals: {
-         ...globals.node,
-         ...globals.es2024
+         ...Globals.node,
+         ...Globals.es2025
       }
    },
 
@@ -17,6 +17,7 @@ export default [{
       // possible problems
       "for-direction": `error`,
       "getter-return": `error`,
+      "no-async-promise-executor": `error`,
       "no-class-assign": `error`,
       "no-compare-neg-zero": `error`,
       "no-cond-assign": `error`,

@@ -5,9 +5,9 @@ import formatDuration, { toSeconds } from "../data/format-duration.js";
 import { prefix } from "../data/message-commands.js";
 import { bloxlink, legacy, cloud } from "../data/roblox.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import { setIntervalAsync, clearIntervalAsync } from "set-interval-async/fixed";
-import { respondToWrongUserMessageComponentInteraction } from "@magicalbunny31/pawesome-utility-stuffs";
+import { respondToWrongUserMessageComponentInteraction } from "@magicalbunny31/pawesome-utility-stuffs/discord";
 
 
 export default class ModerationsManager {

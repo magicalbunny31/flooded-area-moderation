@@ -3,7 +3,7 @@ import { content } from "../data/defaults.js";
 import { commands, prefix } from "../data/message-commands.js";
 
 import path from "node:path";
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import chalk from "chalk";
 import { colours, tryOrUndefined } from "@magicalbunny31/pawesome-utility-stuffs";
 

@@ -1,8 +1,8 @@
 import config from "../data/config.js";
 import { prefix, commands } from "../data/message-commands.js";
 
-import Discord from "discord.js";
-import { colours, choice, wait } from "@magicalbunny31/pawesome-utility-stuffs";
+import * as Discord from "discord.js";
+import { choice, wait } from "@magicalbunny31/pawesome-utility-stuffs";
 
 
 export default class Commands {

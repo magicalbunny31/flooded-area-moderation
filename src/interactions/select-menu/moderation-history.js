@@ -1,6 +1,6 @@
 import ModerationsHistory from "../../classes/moderations-history.js";
 
-import { deferComponents } from "@magicalbunny31/pawesome-utility-stuffs";
+import { deferComponents } from "@magicalbunny31/pawesome-utility-stuffs/discord";
 
 
 /**
@@ -22,7 +22,7 @@ export default async interaction => {
          || interaction.message?.reference && (await interaction.message.fetchReference()).author.id === interaction.user.id
    )
       await interaction.update({
-         components: deferComponents(interaction.customId, interaction.message.components, interaction.values)
+         components: deferComponents(interaction.customId, interaction.client.allEmojis, interaction.message.components, interaction.values)
       });
 
    else

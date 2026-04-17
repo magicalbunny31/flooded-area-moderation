@@ -1,9 +1,9 @@
 import ModerationsManager from "../classes/moderations-manager.js";
 
 import { DatabaseSync } from "node:sqlite";
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import { Firestore } from "@google-cloud/firestore";
-import { emojis } from "@magicalbunny31/pawesome-utility-stuffs";
+import { emojis } from "@magicalbunny31/pawesome-utility-stuffs/discord";
 import { FennecClient } from "@magicalbunny31/fennec-utilities";
 
 

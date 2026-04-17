@@ -11,7 +11,7 @@ pipeline {
             echo "✨ building.."
             dir("src") {
                withCredentials([ file(credentialsId: "DOTENVX_ENV_KEYS_FLOODED_AREA_MODERATION", variable: "DOTENVX_ENV_KEYS") ]) {
-                  writeFile file: ".env.keys", text: readFile(DOTENVX_ENV_KEYS), encoding: "UTF-8"
+                  writeFile file: "./.env.keys", text: readFile(DOTENVX_ENV_KEYS), encoding: "UTF-8"
                }
             }
          }

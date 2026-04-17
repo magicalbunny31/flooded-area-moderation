@@ -3,7 +3,7 @@ import { getPlayerModerationHistory } from "../data/database.js";
 import { modal } from "../data/defaults.js";
 import { legacy, cloud } from "../data/roblox.js";
 
-import Discord from "discord.js";
+import * as Discord from "discord.js";
 import dayjs from "dayjs";
 
 
