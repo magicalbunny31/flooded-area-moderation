@@ -1,7 +1,7 @@
 pipeline {
    agent {
       node {
-         label "fox-0 apps"
+         label "fox-0"
       }
    }
 
