@@ -13,10 +13,9 @@
 *.db
 
 # 🔐 secrets
-DOTENV_KEY
 .env*
 .private*
-!.env.project
+!.env
 !.env.sample
 
 # 📜 logs
