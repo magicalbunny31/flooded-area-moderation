@@ -9,8 +9,8 @@ this is pretty complex! let me hold your paw as we set it up together~
    - by naming the "Database ID" "`(default)`", it counts under [firestore's free quota](https://cloud.google.com/firestore/pricing#free-quota)!
       - ..meaning, you don't pay for this (as long as you stay under the generous free quota limit, else the app will stop working until the quota resets..)
    - which location you wanna create your database in is up to you - it doesn't really matter but just remember that you can't change it after creating the database
-   - you must name the `databaseId` in [`/src/index.js`](../src/index.js#L85) (line 85) the same as the "Database ID" for this newly created database
-      - if you've named the "Database ID" "`(default)`" (aka: leaving that field blank), you can omit the `databaseId` property in [`/src/index.js`](../src/index.js#L85) (line 85)
+   - you must name the `databaseId` in [`/flooded-area-moderation-discord/src/index.js`](../flooded-area-moderation-discord/src/index.js#L84) (line 84) the same as the "Database ID" for this newly created database
+      - if you've named the "Database ID" "`(default)`" (aka: leaving that field blank), you can omit the `databaseId` property in [`/flooded-area-moderation-discord/src/index.js`](../flooded-area-moderation-discord/src/index.js#L84) (line 84)
 3. create an index for a collection group
    - this is so moderation statistics can work!
    - when viewing your database, on the right side of your screen go to "Indexes"

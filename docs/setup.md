@@ -14,7 +14,7 @@
       - **public instance examples**: a discord guild marked as a community server, intended for public discovery
    - if your discord guild doesn't match the **private instance examples**, please remove or replace all branding! this includes but is not limited to:
       - any references to [Flooded Area](https://www.roblox.com/games/3976767347/Flooded-Area) (excluding variable names)
-      - the embed colours (aka: container accent colours) of the app, seen in the code as [`colours.flooded_area_moderation`](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/data/colours.js#L30) or hex colour `#bc1922`
+      - the embed colours (aka: container accent colours) of the app, seen in the code as [`colours.flooded_area_moderation`](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/feature/v3/src/colours.js#L27) or hex colour `#bc1922`
    - the instructions below will guide you with replacing branding for the app
 
 
@@ -29,14 +29,14 @@
    - [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities) is my own development package for my apps
       - you may start getting errors logged in your console saying "`🚫 FennecClient.initialise() not run yet`", however these are safe to ignore
       - *for more information, please see [nuzzles.dev/dev/fennec](https://nuzzles.dev/dev/fennec)*
-   - open [`/src/index.js`](../src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
+   - open [`/flooded-area-moderation-discord/src/index.js`](../flooded-area-moderation-discord/src/index.js) and locate the line containing: "`await client.fennec.initialise();`"
    - delete this line or comment out this line by prepending `//` to it
-   - next, delete the file [`/src/events/messageCreate_developerCommands.js`](../src/events/messageCreate_developerCommands.js)
-      - this file gives the users defined in [`/src/data/developers.js`](../src/data/developers.js) access to [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities)'s developer commands
+   - next, delete the file [`/flooded-area-moderation-discord/src/events/messageCreate_developerCommands.js`](../flooded-area-moderation-discord/src/events/messageCreate_developerCommands.js)
+      - this file gives the users defined in [`/flooded-area-moderation-discord/src/data/developers.js`](../flooded-area-moderation-discord/src/data/developers.js) access to [@magicalbunny31/fennec-utilities](https://github.com/magicalbunny31/fennec-utilities)'s developer commands
       - ..it really gives the main developer of this app, [magicalbunny31](https://nuzzles.dev), the ability to run developer commands on the app - the user experience won't be affected and the security of your system won't be affected either! though, it is still good practice to delete this file just in case either developer accounts are compromised and exist in your discord guilds
 4. environment variables
    - we'll set up the `.env` file now so that you can insert values into it as you continue along the further steps~
-   - rename the [`/src/.env.sample`](../src/.env.sample) file to `.env`
+   - rename the [`/flooded-area-moderation-discord/src/.env.sample`](../flooded-area-moderation-discord/src/.env.sample) file to `.env`
    - further steps will reference this file as the `.env` file to input values in
    - once you finish following all steps, if there are any keys you didn't input values in (for example: if you don't input [google cloud firestore](https://cloud.google.com/firestore) api keys because you're using [node.js native sqlite](https://nodejs.org/api/sqlite.html) in step 4) then it is safe to leave these keys empty or even delete these keys from the `.env` file
 5. set-up the database
@@ -44,7 +44,7 @@
    - whilst [google cloud firestore](https://cloud.google.com/firestore) more complex to configure, it can be easier to manage
       - [view the instructions in `setup-firestore.md` and start from step 1 there](./setup-firestore.md)
    - though, [node.js native sqlite](https://nodejs.org/api/sqlite.html) was added as an alternative for those who want to fully self-host the app
-      - when choosing [node.js native sqlite](https://nodejs.org/api/sqlite.html), exercise extreme caution with your local database file (which will be generated in [`src/database/sqlite.db`](../src/database/sqlite.db))! make sure it doesn't accidentally get committed, deleted, compromised, or something along those lines~
+      - when choosing [node.js native sqlite](https://nodejs.org/api/sqlite.html), exercise extreme caution with your local database file (which will be generated in [`/flooded-area-moderation-discord/src/database/sqlite.db`](../flooded-area-moderation-discord/src/database/sqlite.db))! make sure it doesn't accidentally get committed, deleted, compromised, or something along those lines~
       - [view the instructions in `setup-sqlite.md` and start from step 1 there](./setup-sqlite.md)
 6. get your [roblox open cloud](https://create.roblox.com/docs/cloud/open-cloud) api keys
    - [create an api key](https://create.roblox.com/dashboard/credentials) by pressing the "Create API Key" button
@@ -67,7 +67,7 @@
    - press "Save & Generate Key"
    - save the generated api key: you'll need it to input values into your `.env` file
       - replace any occurrences of `<UNIVERSE_ID>` in the keys (with `ROBLOX_OPEN_CLOUD_API_KEY_` prefixes) with your roblox experience's own universe id: this can be repeated as many times as necessary for multiple roblox universes
-         - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
+         - you'll need to reference these `.env` values inside the [`/flooded-area-moderation-discord/src/data/config.js`](../flooded-area-moderation-discord/src/data/config.js) file (see step 9)
       - for these `<UNIVERSE_ID>`s, set its value as the api key you generated
 7. get your [bloxlink developer api](https://blox.link/dashboard/user/developer) keys
    - *this step is optional: if you prefer to not obtain [bloxlink developer api](https://blox.link/dashboard/user/developer) keys, you can skip this step*
@@ -75,10 +75,10 @@
    - save the generated api key: you'll need it to input values into your `.env` file
       - replace any occurrences of `<GUILD_ID>` in the keys (with `BLOXLINK_SERVER_KEY_` prefixes) with your roblox experience's linked discord guilds: for every roblox universe managed there must be at most one linked discord guild
       - for these `<GUILD_ID>`s, set its value as the api key for its corresponding discord guild
-         - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
+         - you'll need to reference these `.env` values inside the [`/flooded-area-moderation-discord/src/data/config.js`](../flooded-area-moderation-discord/src/data/config.js) file (see step 9)
 8. add [discord webhook urls](https://support.discord.com/hc/articles/228383668) to your `.env` file
    - replace any occurrences of `<GUILD_ID>` in the keys (with `LOGS_WEBHOOK_URL_` prefixes) with webhook urls created in the channel of where to post the moderation log embed for player moderations (in the guild where the commands are ran in)
-      - you'll need to reference these `.env` values inside the [`/src/data/config.js`](../src/data/config.js) file (see step 9)
+      - you'll need to reference these `.env` values inside the [`/flooded-area-moderation-discord/src/data/config.js`](../flooded-area-moderation-discord/src/data/config.js) file (see step 9)
    - for help on how to create webhooks in a discord channel, see [discord's help centre article on intro to webhooks](https://support.discord.com/hc/articles/228383668)
 9. update your discord app from the [discord developer dashboard](https://discord.com/developers/applications) for your app
    - under the "Bot" tab, get your discord app's bot token from the [discord developer dashboard](https://discord.com/developers/applications) to your `.env` file
@@ -89,20 +89,20 @@
       - "Message Content Intent"
 10. configuration files
    - these files are kinda like environment variables, however they aren't important enough to stay hidden
-   - edit the list which is `export default` in [`/src/data/config.js`](../src/data/config.js):
+   - edit the list which is `export default` in [`/flooded-area-moderation-discord/src/data/config.js`](./flooded-area-moderation-discord/src/data/config.js):
       - one discord guild can only link to one roblox experience - there will be limited support for allowing multiple relationships between multiple discord guilds or roblox experiences
-      - for typings on how to format your own entry in this list, see [`/src/types/config.d.ts`](../src/types/config.d.ts)
-   - edit the string in [`/src/data/user-agent.js`](../src/data/user-agent.js):
+      - for typings on how to format your own entry in this list, see [`/flooded-area-moderation-discord/src/types/config.d.ts`](./flooded-area-moderation-discord/src/types/config.d.ts)
+   - edit the string in [`/flooded-area-moderation-discord/src/data/user-agent.js`](./flooded-area-moderation-discord/src/data/user-agent.js):
       - the default export for this file returns a formatted `User-Agent` string for http requests (to apis)
          - here's an example of what the string looks like: `flooded-area-moderation/3.2.0 (Node.js/22.12.0; Linux 6.8.0-1024-raspi; arm64; +https://nuzzles.dev/dev/flooded-area-moderation; contact:xxxxx@example.com)`
       - you'll also need to change the value of the `email` variable, or remove it from the `User-Agent` string
       - for any other changes to the `User-Agent` string, you can directly edit the string~
-   - edit the `name` (and `homepage` if required) keys in [`/package.json`](../package.json):
-      - these values are used in various places across the app, like its `User-Agent` or in [`/src/data/defaults.js`](../src/data/defaults.js)
+   - edit the `name` (and `homepage` if required) keys in [`/package.json`](../package.json) and [`/flooded-area-moderation-discord/package.json`](../flooded-area-moderation-discord/package.json):
+      - these values are used in various places across the app, like its `User-Agent` or in [`/flooded-area-moderation-discord/src/data/defaults.js`](./flooded-area-moderation-discord/src/data/defaults.js)
 11. upload some emojis for the app to use
-   - download the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
+   - download the [`/flooded-area-moderation-discord/src/assets/emojis.zip`](./flooded-area-moderation-discord/src/assets/emojis.zip) file and unzip the file: the contents of it are all images of all the emojis that the app uses
    - then, go to the [discord developer dashboard](https://discord.com/developers/applications) and navigate to your app's emoji tab
-   - upload all the files from the [`/src/assets/emojis.zip`](../src/assets/emojis.zip) file and rename the emojis you upload to the filename of the image
+   - upload all the files from the [`/flooded-area-moderation-discord/src/assets/emojis.zip`](./flooded-area-moderation-discord/src/assets/emojis.zip) file and rename the emojis you upload to the filename of the image
    - with the way my helper package [@magicalbunny31/pawesome-utility-stuffs](https://github.com/magicalbunny31/pawesome-utility-stuffs), works the app's own emojis are bound to `Client#allEmojis` (you may even notice the references to this!) using the package's [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function
       - it works by fetching all emojis uploaded to the app and adding them to an object with the key as the name of the emoji and its value as the markdown for the emoji
       - the [emojis](https://github.com/magicalbunny31/pawesome-utility-stuffs/blob/main/src/functions/emojis.js) function also includes other custom emojis that exist in my own private servers - attempting to use these emojis may not work as your app won't exist in my private servers
@@ -113,8 +113,8 @@
       - (you'll be on your own when setting up  process manager for the app, though..)
       - note that if you decide to use a process manager, you might need to manually install dependencies first!
          - this project uses [pnpm](https://pnpm.io/), so you'll need to use `pnpm install` to install dependencies
-         - if you prefer to use [npm]([pnpm](https://pnpm.io/)), delete the [`pnpm-lock.yaml`](../pnpm-lock.yaml) and [`pnpm-workspace.yaml`](../pnpm-workspace.yaml) files, then run `npm install` to install dependencies (however, you won't have the comfort of having the lock file and other project-specific configurations!)
-      - as you can see by the [`compose.yaml`](../compose.yaml) and [`Dockerfile`](../Dockerfile) in this repository, the main `flooded-area-moderation` app runs in [Docker](https://www.docker.com/)
+         - if you prefer to use [npm]([pnpm](https://pnpm.io/)), delete the [`/pnpm-lock.yaml`](../pnpm-lock.yaml) and [`/pnpm-workspace.yaml`](../pnpm-workspace.yaml) files, then run `npm install` to install dependencies (however, you won't have the comfort of having the lock file and other project-specific configurations!)
+      - as you can see by the [`/compose.yaml`](../compose.yaml) and [`/Dockerfile`](../Dockerfile) in this repository, the main `flooded-area-moderation` app runs in [Docker](https://www.docker.com/)
 13. install the app to your discord server(s)
    - from the [discord developer dashboard](https://discord.com/developers/applications) for your app, go to the "OAuth2" tab and scroll down to the "OAuth2 URL Generator"
    - under "SCOPES", select `bot`
@@ -129,6 +129,6 @@
 
 ## 🛠️ advanced usage
 
-- usage of the [`Jenkinsfile`](../Jenkinsfile), [`compose.yaml`](../compose.yaml) and [`Dockerfile`](../Dockerfile) are completely optional and can be deleted if not needed
-- for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/src/data/config.js`](../src/data/config.js) file then you don't need to add these values to the `.env` file
+- usage of the [`/Jenkinsfile`](../Jenkinsfile), [`/compose.yaml`](../compose.yaml) and [`/Dockerfile`](../Dockerfile) are completely optional and can be deleted if not needed
+- for steps 5, 6, 7, and 8: if you prefer to insert these values directly inside the [`/flooded-area-moderation-discord/src/data/config.js`](./flooded-area-moderation-discord/src/data/config.js) file then you don't need to add these values to the `.env` file
    - this means that you can remove the keys or leave blank values for the placeholder keys

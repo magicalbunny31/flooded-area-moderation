@@ -1,9 +1,9 @@
 services:
    flooded-area-moderation-discord:
-      container_name: flooded-area-moderation-discord
       build:
          context: .
-         dockerfile: ./Dockerfile
+         dockerfile: ./flooded-area-moderation-discord/Dockerfile
+      container_name: flooded-area-moderation-discord
       deploy:
          restart_policy:
             condition: on-failure
@@ -11,7 +11,9 @@ services:
             max_attempts: 3
       develop:
          watch:
-            - path: ./src
+            - path: ./flooded-area-moderation-discord/
+              action: rebuild
+            - path: ./package-lock.json
               action: rebuild
       environment:
          TZ: Europe/London

@@ -17,6 +17,7 @@ const fennec = new FennecClient({
    fennecProcess: `other-stuffs`,
    fennecUtilities: {
       baseUrl:       process.env.FENNEC_UTILITIES_URL,
+      id:            `flooded-area-moderation`,
       authorisation: process.env.FENNEC_UTILITIES_AUTHORISATION
    },
    useAnnouncement: false,

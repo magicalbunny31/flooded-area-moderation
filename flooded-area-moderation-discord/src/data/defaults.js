@@ -28,24 +28,26 @@ const modalPrivateReasonAttribution = user => `\n\nModerated by @${user.username
 const banBaseModal = (commandDataId, user, plural) => new Discord.ModalBuilder()
    .setCustomId(`moderate-players:${commandDataId}`)
    .setTitle(`Ban ${plural ? `Players` : `Player`}`)
-   .setComponents(
-      new Discord.ActionRowBuilder()
-         .setComponents(
+   .setLabelComponents(
+      new Discord.LabelBuilder()
+         .setLabel(`Public Ban Reason`)
+         .setDescription(`Reason for this ban, shown to the banned ${plural ? `players` : `player`}; must abide by the Roblox Community Standards`)
+         .setTextInputComponent(
             new Discord.TextInputBuilder()
                .setCustomId(`display-reason`)
-               .setLabel(`Public Ban Reason`)
                .setMaxLength(400)
-               .setPlaceholder(`Reason for this ban, shown to the banned ${plural ? `players` : `player`}. Must abide by Roblox Community Standards.`)
+               .setPlaceholder(`No reason given by moderator`)
                .setRequired(false)
                .setStyle(Discord.TextInputStyle.Paragraph)
          ),
-      new Discord.ActionRowBuilder()
-         .setComponents(
+      new Discord.LabelBuilder()
+         .setLabel(`Private Ban Reason`)
+         .setDescription(`Extended reason for this ban, not shown to the banned ${plural ? `players` : `player`}`)
+         .setTextInputComponent(
             new Discord.TextInputBuilder()
                .setCustomId(`private-reason`)
-               .setLabel(`Private Ban Reason`)
                .setMaxLength(1000 - modalPrivateReasonAttribution(user).length)
-               .setPlaceholder(`Extended reason for this ban, not shown to the banned ${plural ? `players` : `player`}.`)
+               .setPlaceholder(`No reason given by moderator`)
                .setRequired(false)
                .setStyle(Discord.TextInputStyle.Paragraph)
          )

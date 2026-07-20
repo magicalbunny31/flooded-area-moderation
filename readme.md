@@ -13,7 +13,7 @@
    - [roblox's legacy api](https://create.roblox.com/docs/en-us/cloud/legacy)
    - [google cloud firestore](https://cloud.google.com/firestore) (optional)
    - [bloxlink's developer api](https://blox.link/dashboard/user/developer) (optional)
-   - ..[and the lovely dependencies](./package.json#L30-L47)
+   - ..[and the lovely dependencies](./flooded-area-moderation-discord/package.json#L19-L30)
 - *for more information, please see [nuzzles.dev/dev/flooded-area-moderation](https://nuzzles.dev/dev/flooded-area-moderation)*
 
 

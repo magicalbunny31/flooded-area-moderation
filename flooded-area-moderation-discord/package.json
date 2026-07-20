@@ -1,0 +1,35 @@
+{
+   "name": "@flufflestack/flooded-area-moderation-discord",
+   "version": "3.3.1",
+   "type": "module",
+   "private": true,
+   "main": "./src/index.js",
+   "scripts": {
+      "start": "node ./src/index.js",
+      "docker:up": "docker compose up --build",
+      "docker:down": "docker compose down --remove-orphans --rmi all --volumes",
+      "dotenvx:precommit": "dotenvx ext precommit",
+      "dotenvx:encrypt": "dotenvx encrypt -f ./src/.env -fk ./src/.env.keys",
+      "dotenvx:decrypt": "dotenvx decrypt -f ./src/.env -fk ./src/.env.keys"
+   },
+   "engines": {
+      "node": ">=24",
+      "pnpm": ">=11.15"
+   },
+   "dependencies": {
+      "@dotenvx/dotenvx": "^2.7.2",
+      "@google-cloud/firestore": "8.6.0",
+      "@magicalbunny31/fennec-utilities": "github:magicalbunny31/fennec-utilities",
+      "@magicalbunny31/pawesome-utility-stuffs": "github:magicalbunny31/pawesome-utility-stuffs#feature/v3",
+      "better-logging": "^5.0.0",
+      "chalk": "^5.6.2",
+      "dayjs": "^1.11.21",
+      "discord.js": "^14.27.0",
+      "node-cache": "^5.1.2",
+      "set-interval-async": "^3.0.3"
+   },
+   "devDependencies": {
+      "eslint": "^10.7.0",
+      "globals": "^17.7.0"
+   }
+}
