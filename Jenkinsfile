@@ -9,8 +9,8 @@ pipeline {
       stage("build") {
          steps {
             echo "✨ building.."
-            dir("src") {
-               withCredentials([ file(credentialsId: "DOTENVX_ENV_KEYS_FLOODED_AREA_MODERATION", variable: "DOTENVX_ENV_KEYS") ]) {
+            dir("./flooded-area-moderation/src") {
+               withCredentials([ file(credentialsId: "DOTENVX_ENV_KEYS_FLOODED_AREA_MODERATION_DISCORD", variable: "DOTENVX_ENV_KEYS") ]) {
                   writeFile file: "./flooded-area-moderation-discord/.env.keys", text: readFile(DOTENVX_ENV_KEYS), encoding: "UTF-8"
                }
             }
