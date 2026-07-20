@@ -1,3 +1,10 @@
+allowBuilds:
+  protobufjs: true
+blockExoticSubdeps: false
 minimumReleaseAge: 10080 # minutes
 minimumReleaseAgeExclude:
   - "discord.js"
+  - "@discordjs/rest"
+  - "discord-api-types"
+packages:
+  - "flooded-area-moderation-discord"
